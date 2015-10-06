@@ -1,0 +1,59 @@
+nohup: ignoring input
+Running Overall Calculate HS Metrics on sample...v501_961
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Overall Calculate HS Metrics on sample...v501_968
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Overall Calculate HS Metrics on sample...v501_964
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Overall Calculate HS Metrics on sample...v501_965
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Overall Calculate HS Metrics on sample...v501_962
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Overall Calculate HS Metrics on sample...v501_966
+v501
+#<Panel:0x0000000174b9a8 @panel_id="v501", @panel_version="V501", @variants_directory="variants/haplotyper", @intervals_directory="/mnt/Data1/targeted_sequencing/intervals/v501", @transcript_file_path="/mnt/Data1/targeted_sequencing/intervals/v501/v501_transcripts.yaml", @unwanted_file_path="../configuration/unwanted_variants.csv", @wanted_file_path="../configuration/wanted_regions.csv", @coverage_cutoff="30", @allowed_genesets=["NDM", "MODY", "HI", "NDM_MODY", "ALL_V501"]>
+Running Phenotype specific Calculate HS Metrics on sample...v501_961
+Running Phenotype specific Calculate HS Metrics on sample...v501_967
+Running Phenotype specific Calculate HS Metrics on sample...v501_964
+Running Phenotype specific Calculate HS Metrics on sample...v501_965
+Running Phenotype specific Calculate HS Metrics on sample...v501_968
+Running Phenotype specific Calculate HS Metrics on sample...v501_963
+Running Phenotype specific Calculate HS Metrics on sample...v501_966
+Running Phenotype specific Calculate HS Metrics on sample...v501_962
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_961
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_965
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_968
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_964
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_966
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_967
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_962
+Running Phenotype specific GATK DepthOfCoverage on sample...v501_963
+Running GATK HaplotypeCaller on sample...v501_961
+Running GATK HaplotypeCaller on sample...v501_965
+Running GATK HaplotypeCaller on sample...v501_966
+Running GATK HaplotypeCaller on sample...v501_968
+Running GATK HaplotypeCaller on sample...v501_967
+Running GATK HaplotypeCaller on sample...v501_964
+Running GATK HaplotypeCaller on sample...v501_963
+Running GATK HaplotypeCaller on sample...v501_962
+Adding VariantFiltration annotation on sample...v501_961
+Adding VariantFiltration annotation on sample...v501_965
+Running SelectVariants for nkmi on sample...v501_961
+Adding VariantFiltration annotation on sample...v501_966
+Adding VariantFiltration annotation on sample...v501_968
+Running SelectVariants for nkmi on sample...v501_965
+Adding VariantFiltration annotation on sample...v501_967
+Running SelectVariants for nkmi on sample...v501_966
+Running SelectVariants for nkmi on sample...v501_968
+Adding VariantFiltration annotation on sample...v501_963
+Adding VariantFiltration annotation on sample...v501_962
+Adding VariantFiltration annotation on sample...v501_964
+Running SelectVariants for nkmi on sample...v501_967
+Running SelectVariants for nkmi on sample...v501_963
+Running SelectVariants for nkmi on sample...v501_962
+Running SelectVariants for nkmi on sample...v501_964
