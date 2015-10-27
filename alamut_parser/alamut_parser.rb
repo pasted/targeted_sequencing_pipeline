@@ -11,6 +11,7 @@ class AlamutParser
   require_relative '../shared/sample'
   require_relative '../shared/batch'
   require_relative '../shared/panel'
+  require_relative '../shared/metric'
   require 'spreadsheet'
   
   attr_accessor :batch_id, :base_path, :variants_directory, :intervals_directory, :transcript_file_path 
@@ -214,6 +215,43 @@ class AlamutParser
 		phenotype_list = YAML.load_file("#{transcript_file_path}")
 		return phenotype_list
 	end
+	
+	def parse_metrics(input_file_path, metrics_line)
+			counter = 0
+			this_metric = Metric.new
+			IO.foreach("#{input_file_path}") do |this_line| 
+			
+				if ( this_line.match /(^\r|^\n|^\r\n|^#)/ )
+					counter = counter + 1
+				else
+					if counter == metrics_line.to_i
+						
+						metrics_array = this_line.split("\t")
+						
+						this_metric.variable_order.each_with_index do |var, index|
+							file_var = metrics_array[index]
+							if (file_var == "\n") || (file_var == "")
+								file_var = nil 
+							end
+							this_metric.instance_variable_set("@#{var}", file_var)
+						end
+					end
+					counter = counter + 1
+				end
+			end
+			return this_metric
+	end
+	
+	def populate_metrics(samples, this_batch, this_parser)
+		processed_samples = Array.new
+		samples.each do |this_sample|
+			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.sample_id}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
+			this_metric = this_parser.parse_metrics(phenotype_metric_file_path, this_batch.phenotype_metric_line)
+			this_sample.add_metrics(Array.new.push(this_metric))
+			processed_samples.push(this_sample)
+		end
+		return processed_samples
+	end
   
   #Load the config YAML file and pass the settings to local variables
   this_batch = YAML.load_file('../configuration/config.yaml')
@@ -227,6 +265,10 @@ class AlamutParser
 
 
   samples = parser.parse_sample_list(parser.sample_list_path)
+  
+  #populate phenotype specific metrics for each sample
+  samples = parser.populate_metrics(samples, this_batch, parser)
+  
   sample_store = SampleStore.new(samples)
   
   #build the workbook

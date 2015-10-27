@@ -125,11 +125,15 @@ class SampleStore
  						
  						samples.each_pair do |this_sample_id, this_variant_array|
  							header_array = Array.new
- 							ex_number_array = self.samples.select {|s| s.sample_id == this_sample_id }
- 							puts ex_number_array.inspect
- 							this_sheet.row(row_number).push "SAMPLE ::", this_sample_id, "EX NUMBER:", ex_number_array.first.ex_number
+ 							sample_array = self.samples.select {|s| s.sample_id == this_sample_id }
+ 							this_sample = sample_array.first
+ 						
+ 							this_sheet.row(row_number).push "SAMPLE ::", this_sample_id, "EX NUMBER:", this_sample.ex_number
  							row_number = row_number + 1
- 							
+
+ 							this_sheet.row(row_number).push "pct_target_bases_2x ::", this_sample.pct_target_bases_2x, "pct_target_bases_10x ::", this_sample.pct_target_bases_10x, "pct_target_bases_20x ::", this_sample.pct_target_bases_20x, "pct_target_bases_30x ::", this_sample.pct_target_bases_30x
+ 							row_number = row_number + 1
+
  							#puts "******"
  							#puts this_variant_array[0].inspect
  							#puts "Unwanted variants"

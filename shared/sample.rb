@@ -1,7 +1,7 @@
 class Sample
 
 	  attr_accessor :capture_number, :mody_number, :ex_number, :gender, :profile, :phenotype, :sample_type, :comment
-	  attr_accessor :mean_bait_coverage, :pct_target_bases_30x, :sample_id, :panel_version 
+	  attr_accessor :mean_bait_coverage, :pct_target_bases_2x, :pct_target_bases_10x, :pct_target_bases_20x, :pct_target_bases_30x, :sample_id, :panel_version 
 	  attr_accessor :sequencing_panel_version
 	  
 	  def parse_sample_id
@@ -39,9 +39,11 @@ class Sample
 	  
 	  def add_metrics(metrics_array)
 	  	metrics_array.each do |this_metric|	
-
-	  		if this_metric.sample_id == self.sample_id
+	  		if this_metric.sample_id == "#{self.panel_version}_#{self.sample_id}"
 	  			self.mean_bait_coverage = this_metric.mean_bait_coverage
+	  			self.pct_target_bases_2x = this_metric.pct_target_bases_2x
+	  			self.pct_target_bases_10x = this_metric.pct_target_bases_10x
+	  			self.pct_target_bases_20x = this_metric.pct_target_bases_20x
 	  			self.pct_target_bases_30x = this_metric.pct_target_bases_30x
 	  		end
 	  	end

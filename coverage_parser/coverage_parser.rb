@@ -221,7 +221,7 @@ class CoverageParser
   		transcript_file_path 	= this_panel.transcript_file_path
   		sample_list_path 			= this_panel.sample_list_path
   		intervals_directory		=	this_panel.intervals_directory
-  		panel_id					= this_panel.panel_id
+  		panel_id							= this_panel.panel_id
   		panel_version 				= this_panel.panel_version
   		coverage_cutoff 			= this_panel.coverage_cutoff
   		
