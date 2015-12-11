@@ -1,5 +1,0 @@
- (chr2:88890909 T/A): Transcript NM_004836.5: Miscalled variant?
- (chr3:124475620 G/T): Not on a known gene
- (chr9:3826349 C/A): Transcript NM_001042413.1: Miscalled variant?
- (chr17:40474407 T/A): Transcript NM_139276.2: Miscalled variant?
- (chrMT:3241 C/A): Transcript NC_012920.1: Miscalled variant?

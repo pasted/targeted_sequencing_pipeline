@@ -1,3 +1,0 @@
-sequencing_panel_version,sequencing_lane,sequencing_flowcell,capture_number,mody_number,ex_number,gender,profile,sample_type,comments
-v5,8,C71YPACXX,v5_841,MY9430UR,EX1310859,Female,tNGS Pancreatic v5 MODY,Whole Blood,HNF1A c.872dupC/N control
-v5,8,C71YPACXX,v5_842,MY10359BC,EX1405869,Male,tNGS Pancreatic v5 MODY,Whole Blood,HNF1B delex1-9/N control
