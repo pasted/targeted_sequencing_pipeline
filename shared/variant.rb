@@ -96,6 +96,7 @@ class Variant
 			wanted_region_array.each do |wanted_region|
 				if (self.chromosome == wanted_region.chromosome) && ((self.position >= wanted_region.start_position) && (self.position <= wanted_region.stop_position)) 
 						wanted = true
+						break
 				else
 						wanted = false
 				end
