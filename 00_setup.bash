@@ -1,5 +1,11 @@
 mkdir ../assembly
 mkdir ../cnv_analysis
+mkdir ../cnv_analysis/female
+mkdir ../cnv_analysis/female/v501
+mkdir ../cnv_analysis/female/v602
+mkdir ../cnv_analyis/male
+mkdir ../cnv_analyis/male/v501
+mkdir ../cnv_analyis/male/v602
 mkdir ../coverage
 mkdir ../duplicates
 mkdir ../intervals
@@ -17,3 +23,4 @@ mkdir ../variants_t1d
 #Update the regions to dismiss / keep from the main repo
 cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv
 cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_process/wanted_regions.csv configuration/wanted_regions.csv
+bundle install
