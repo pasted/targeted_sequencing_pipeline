@@ -1,0 +1,4 @@
+sequencing_panel_version,capture_number,mody_number,ex_number,gender,profile,sample_type,comments
+v501,v501_0001,MY00001XX,EX0000001,Female,v501 MODY,,
+v501,v501_0002,MY00002YY,EX0000002,Unknown,v501 NDM,,
+v602,v601_0001,MY00001ZZ,EX0000003,Male,v602 FHH,,
