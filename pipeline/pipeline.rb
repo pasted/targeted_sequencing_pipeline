@@ -80,87 +80,89 @@ class Pipeline
 		end
 		
 		#Seperate loop for the WGET cmd due to a throttling issue
-#		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
-#			this_wget = Wget.new
-#			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
-#		
-#			this_rename = Rename.new
-#			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
-#		end      
+		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
+			this_wget = Wget.new
+			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
 		
-#		results = Parallel.map(samples_first, :in_processes=>20 ) do |this_sample|
-#			puts this_sample.inspect
-#			this_bwa_mem = BwaMem.new
-#			out = this_bwa_mem.run_bwa_mem(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "BWA-MEM alignment", logger)
-#			
-#			this_sam_to_bam = SamToBam.new
-#			out = this_sam_to_bam.convert_sam_to_bam(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "SAM to BAM", logger)
-#			
-#			this_fix_mate_pair = FixMatePair.new
-#			out = this_fix_mate_pair.fix_information(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Fix MatePair info", logger)
-#			
-#			this_sort_bam = SortBam.new
-#			out = this_sort_bam.sort(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Sort BAM", logger)
-#			
-#			this_mark_dups = MarkDuplicates.new
-#			out = this_mark_dups.remove_dups(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Remove Duplicates", logger)
-#			
-#			this_realign_indels = RealignIndels.new
-#			out = this_realign_indels.create_targets(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Create targets", logger)
-#			
-#			out = this_realign_indels.realign(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Indel Realignment", logger)
-#
-#			## Metrics overall
-#     
-#			this_metric = CalculateMetrics.new
-#			out = this_metric.overall_metrics(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Overall metrics", logger)
-#			
-#			out = this_metric.phenotype_metrics(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Phenotype metrics", logger)
-#			
-#			out = this_metric.phenotype_coverage(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Phenotype coverage", logger)
-#		
-#			### Phenotype specifc section
-#			### Haplotype Caller
-#      
-#			this_caller = VariantCaller.new
-#			out = this_caller.haplotype_caller(this_sample, this_batch, logger, false)
-#			
-#			this_pipeline.error_check(out, this_sample, "Variant Calling", logger)
-#
-#			### Variant filtration
-#       
-#			this_selection = FilterVariants.new
-#			out = this_selection.annotate_filters(this_sample, this_batch, logger)
-#			this_pipeline.error_check(out, this_sample, "Annotate filters", logger)
-#		
-#			## Select Variants - discordance with No Known Clinical Significance 
-#		
-#			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "filtered", "nkmi", this_batch.common_variants_nkmi_path)
-#			this_pipeline.error_check(out, this_sample, "NKMI variant discordance", logger)
-#		
-#			## Select Variants - discordance with Common Artefacts
-#       
-#			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "nkmi", "ca", "#{this_batch.common_artefacts_path}")
-#			this_pipeline.error_check(out, this_sample, "CA variant discordance", logger)
-#		
-#			## Select Variants - phenotype specific intervals
-#		
-#			out = this_selection.select_phenotype_variants(this_sample, this_batch, logger, "ca", "phenotype")
-#			this_pipeline.error_check(out, this_sample, "Phenotype specific variant selection", logger)
-#					
-#		end
+			this_rename = Rename.new
+			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
+		end
+
+		`gzip_all ../../raw_reads/*.fastq`
+		
+		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
+			puts this_sample.inspect
+			this_bwa_mem = BwaMem.new
+			out = this_bwa_mem.run_bwa_mem(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "BWA-MEM alignment", logger)
+			
+			this_sam_to_bam = SamToBam.new
+			out = this_sam_to_bam.convert_sam_to_bam(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "SAM to BAM", logger)
+			
+			this_fix_mate_pair = FixMatePair.new
+			out = this_fix_mate_pair.fix_information(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Fix MatePair info", logger)
+			
+			this_sort_bam = SortBam.new
+			out = this_sort_bam.sort(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Sort BAM", logger)
+			
+			this_mark_dups = MarkDuplicates.new
+			out = this_mark_dups.remove_dups(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Remove Duplicates", logger)
+			
+			this_realign_indels = RealignIndels.new
+			out = this_realign_indels.create_targets(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Create targets", logger)
+			
+			out = this_realign_indels.realign(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Indel Realignment", logger)
+
+			## Metrics overall
+     
+			this_metric = CalculateMetrics.new
+			out = this_metric.overall_metrics(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Overall metrics", logger)
+			
+			out = this_metric.phenotype_metrics(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Phenotype metrics", logger)
+			
+			out = this_metric.phenotype_coverage(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Phenotype coverage", logger)
+		
+			### Phenotype specifc section
+			### Haplotype Caller
+      
+			this_caller = VariantCaller.new
+			out = this_caller.haplotype_caller(this_sample, this_batch, logger, false)
+			
+			this_pipeline.error_check(out, this_sample, "Variant Calling", logger)
+
+			### Variant filtration
+       
+			this_selection = FilterVariants.new
+			out = this_selection.annotate_filters(this_sample, this_batch, logger)
+			this_pipeline.error_check(out, this_sample, "Annotate filters", logger)
+		
+			## Select Variants - discordance with No Known Clinical Significance 
+		
+			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "filtered", "nkmi", this_batch.common_variants_nkmi_path)
+			this_pipeline.error_check(out, this_sample, "NKMI variant discordance", logger)
+		
+			## Select Variants - discordance with Common Artefacts
+       
+			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "nkmi", "ca", "#{this_batch.common_artefacts_path}")
+			this_pipeline.error_check(out, this_sample, "CA variant discordance", logger)
+		
+			## Select Variants - phenotype specific intervals
+		
+			out = this_selection.select_phenotype_variants(this_sample, this_batch, logger, "ca", "phenotype")
+			this_pipeline.error_check(out, this_sample, "Phenotype specific variant selection", logger)
+					
+		end
 		
 
 		#annotate variants
@@ -169,18 +171,18 @@ class Pipeline
 		this_metric = ParseMetrics.new
 		this_metric.parse_batch_metrics(this_batch, samples)
 
-#		#SNP typing
-#
-#		input_file_string = this_pipeline.generate_input_file_string(samples, ["v5","v501"])
-#		if input_file_string != ""
-#		#	6q24 SNPs
-#		#	Only parse samples with the 6q24 region targeted   
-#			this_pipeline.call_6q24_snps(this_batch, logger, input_file_string)
-#		#	type_one_snps
-#			this_pipeline.call_type_one_snps(this_batch, logger, input_file_string)
-#		else
-#			puts "No v5 or v501 samples to run through snp typing"
-#			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
-#		end
+		#SNP typing
+
+		input_file_string = this_pipeline.generate_input_file_string(samples, ["v5","v501"])
+		if input_file_string != ""
+		#	6q24 SNPs
+		#	Only parse samples with the 6q24 region targeted   
+			this_pipeline.call_6q24_snps(this_batch, logger, input_file_string)
+		#	type_one_snps
+			this_pipeline.call_type_one_snps(this_batch, logger, input_file_string)
+		else
+			puts "No v5 or v501 samples to run through snp typing"
+			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
+		end
 		
 end
