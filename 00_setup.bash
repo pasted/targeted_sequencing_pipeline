@@ -3,9 +3,9 @@ mkdir ../cnv_analysis
 mkdir ../cnv_analysis/female
 mkdir ../cnv_analysis/female/v501
 mkdir ../cnv_analysis/female/v602
-mkdir ../cnv_analyis/male
-mkdir ../cnv_analyis/male/v501
-mkdir ../cnv_analyis/male/v602
+mkdir ../cnv_analysis/male
+mkdir ../cnv_analysis/male/v501
+mkdir ../cnv_analysis/male/v602
 mkdir ../coverage
 mkdir ../duplicates
 mkdir ../intervals
