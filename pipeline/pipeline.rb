@@ -176,10 +176,11 @@ class Pipeline
 		input_file_string = this_pipeline.generate_input_file_string(samples, ["v5","v501"])
 		if input_file_string != ""
 		#	6q24 SNPs
-		#	Only parse samples with the 6q24 region targeted   
-			this_pipeline.call_6q24_snps(this_batch, logger, input_file_string)
+		#	Only parse samples with the 6q24 region targeted
+			this_variant_caller = VariantCaller.new
+			this_variant_caller.call_6q24_snps(this_batch, logger, input_file_string)
 		#	type_one_snps
-			this_pipeline.call_type_one_snps(this_batch, logger, input_file_string)
+			this_variant_caller.call_type_one_snps(this_batch, logger, input_file_string)
 		else
 			puts "No v5 or v501 samples to run through snp typing"
 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }

@@ -68,7 +68,7 @@ class VariantCaller
 	# @param logger [Logger] The Logger instance
 	#	@param bam_out_required [Boolean] A Boolean to select whether or not to output the BAM file
 	# @return output [Array] An array containing the ExitStatus of the Wrapper class and it's STDOUT	
-	def call_6q24_snps(this_batch, input_file_string) 
+	def call_6q24_snps(this_batch, logger, input_file_string) 
 		
 		output_file_string = "../../variants/haplotyper/#{this_batch.batch_id}.6q24.ug_call.vcf"	
 		annotated_file_string = "../../variants/haplotyper/#{this_batch.batch_id}.filtered.6q24.ug_call.vcf"	
