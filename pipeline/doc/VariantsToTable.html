@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: VariantsToTable
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!VariantsToTable.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (V)</a> &raquo;
+    
+    
+    <span class="title">VariantsToTable</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: VariantsToTable
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">VariantsToTable</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">variants_to_table.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>VariantToTable class: Generates genotype and allelic depth tables from VCF
+files</p>
+</div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allelic_depth_table-instance_method" title="#allelic_depth_table (instance method)">- (Array&lt;String, Object&gt;) <strong>allelic_depth_table</strong>(input_file_path, output_file_path, batch, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts VCF file to an allelic depth table.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#genotype_table-instance_method" title="#genotype_table (instance method)">- (Array&lt;String, Object&gt;) <strong>genotype_table</strong>(input_file_path, output_file_path, batch, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts VCF file to a genotype table.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="allelic_depth_table-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>allelic_depth_table</strong>(input_file_path, output_file_path, batch, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts VCF file to an allelic depth table</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>input_file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filepath to the VCF file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>output_file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filepath to the output file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Batch instance, derived from the Config YAML file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Logger instance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'variants_to_table.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allelic_depth_table'>allelic_depth_table</span><span class='lparen'>(</span><span class='id identifier rubyid_input_file_path'>input_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_output_file_path'>output_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Converting VCF to allele depth table on batch </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T VariantsToTable -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_path'>input_file_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_path'>output_file_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --allowMissingData -F CHROM -F POS -F ID -F REF -F ALT -F QUAL -F FILTER -F AC -F AF -GF AD </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-log ../../logs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_GT_table_filtered_ug_call.log</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Genotype table :: Batch </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="genotype_table-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>genotype_table</strong>(input_file_path, output_file_path, batch, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts VCF file to a genotype table</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>input_file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filepath to the VCF file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>output_file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filepath to the output file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Batch instance, derived from the Config YAML file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Logger instance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'variants_to_table.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_genotype_table'>genotype_table</span><span class='lparen'>(</span><span class='id identifier rubyid_input_file_path'>input_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_output_file_path'>output_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Converting VCF to genotype table on batch </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T VariantsToTable -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_path'>input_file_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_path'>output_file_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --allowMissingData -F CHROM -F POS -F ID -F REF -F ALT -F QUAL -F FILTER -F AC -F AF -GF GT </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-log ../../logs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_GT_table_filtered_ug_call.log</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Genotype table :: Batch </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jan 26 14:40:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

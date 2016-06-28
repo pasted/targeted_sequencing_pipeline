@@ -18,6 +18,11 @@ class SnpParser
   attr_accessor :batch_id, :base_path, :variants_directory, :intervals_directory, :transcript_file_path 
   attr_accessor :unwanted_file_path, :wanted_file_path, :sample_list_path, :panel_id, :panel_version
   
+  #Load the SNP data with genotypes from a TSV file
+  #
+  # @param file_name [String] A string of the filepath to the file
+  # @capture_numbers [String] An array of capture ids
+  # @return snp_array [Array] An array of Snp objects
   def parse_genotype_table_file(file_name, capture_numbers)
   	options = { :col_sep => "\t", :headers_in_file => true }
   	snp_array = Array.new 
@@ -56,6 +61,10 @@ class SnpParser
   	return snp_array
   end
   
+  #Load the sample list from a CSV file
+  #
+  # @param sample_file_path [String] A string of the filepath to the file
+  # @return sample_array [Array] An array of Sample objects
   def parse_sample_list(sample_file_path)
   	options = { :col_sep => "," }
   	sample_array = Array.new

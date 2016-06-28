@@ -1,0 +1,5243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Metric
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Metric.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo;
+    
+    
+    <span class="title">Metric</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Metric
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Metric</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">metric.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>Metric class: Metric class to store and manipulate information from Picard
+CalculateHSMetrics output</p>
+</div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#at_dropout-instance_method" title="#at_dropout (instance method)">- (String) <strong>at_dropout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A measure of how undercovered &lt;= 50% GC regions are relative to the
+mean.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bait_design_efficiency-instance_method" title="#bait_design_efficiency (instance method)">- (Object) <strong>bait_design_efficiency</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bait_set-instance_method" title="#bait_set (instance method)">- (Object) <strong>bait_set</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bait_territory-instance_method" title="#bait_territory (instance method)">- (Object) <strong>bait_territory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fold_80_base_penalty-instance_method" title="#fold_80_base_penalty (instance method)">- (String) <strong>fold_80_base_penalty</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fold over-coverage necessary to raise 80% of bases in “non-zero-cvg”
+targets to the mean coverage level in those targets.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fold_enrichment-instance_method" title="#fold_enrichment (instance method)">- (String) <strong>fold_enrichment</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fold by which the baited region has been amplified above genomic
+background.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gc_dropout-instance_method" title="#gc_dropout (instance method)">- (String) <strong>gc_dropout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A measure of how undercovered &gt;= 50% GC regions are relative to the
+mean.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#genome_size-instance_method" title="#genome_size (instance method)">- (Object) <strong>genome_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#het_snp_q-instance_method" title="#het_snp_q (instance method)">- (String) <strong>het_snp_q</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Phred Scaled Q Score of the theoretical HET SNP sensitivity.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#het_snp_sensitivity-instance_method" title="#het_snp_sensitivity (instance method)">- (String) <strong>het_snp_sensitivity</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The theoretical HET SNP sensitivity.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_library_size-instance_method" title="#hs_library_size (instance method)">- (String) <strong>hs_library_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The estimated number of unique molecules in the selected part of the
+library.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_100x-instance_method" title="#hs_penalty_100x (instance method)">- (String) <strong>hs_penalty_100x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 100X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_10x-instance_method" title="#hs_penalty_10x (instance method)">- (String) <strong>hs_penalty_10x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 10X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_20x-instance_method" title="#hs_penalty_20x (instance method)">- (String) <strong>hs_penalty_20x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 20X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_30x-instance_method" title="#hs_penalty_30x (instance method)">- (String) <strong>hs_penalty_30x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 30X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_40x-instance_method" title="#hs_penalty_40x (instance method)">- (String) <strong>hs_penalty_40x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 40X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hs_penalty_50x-instance_method" title="#hs_penalty_50x (instance method)">- (String) <strong>hs_penalty_50x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 50X.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#library-instance_method" title="#library (instance method)">- (String) <strong>library</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Panel library.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mean_bait_coverage-instance_method" title="#mean_bait_coverage (instance method)">- (String) <strong>mean_bait_coverage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The mean coverage of all baits in the experiment.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mean_target_coverage-instance_method" title="#mean_target_coverage (instance method)">- (String) <strong>mean_target_coverage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The mean coverage of targets.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#median_target_coverage-instance_method" title="#median_target_coverage (instance method)">- (String) <strong>median_target_coverage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The median coverage of targets.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#near_bait_bases-instance_method" title="#near_bait_bases (instance method)">- (String) <strong>near_bait_bases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF aligned bases that mapped to within a fixed interval of a
+baited region, but not on a baited region.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#off_bait_bases-instance_method" title="#off_bait_bases (instance method)">- (String) <strong>off_bait_bases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF aligned bases that mapped to neither on or near a bait.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_bait_bases-instance_method" title="#on_bait_bases (instance method)">- (String) <strong>on_bait_bases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF aligned bases that mapped to a baited region of the
+genome.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_bait_vs_selected-instance_method" title="#on_bait_vs_selected (instance method)">- (String) <strong>on_bait_vs_selected</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of on+near bait bases that are on as opposed to near.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_target_bases-instance_method" title="#on_target_bases (instance method)">- (String) <strong>on_target_bases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF aligned bases that mapped to a targeted region of the
+genome.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_exc_baseq-instance_method" title="#pct_exc_baseq (instance method)">- (String) <strong>pct_exc_baseq</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of aligned bases that were filtered out because they were of
+low base quality.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_exc_dupe-instance_method" title="#pct_exc_dupe (instance method)">- (String) <strong>pct_exc_dupe</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of aligned bases that were filtered out because they were in
+reads marked as duplicates.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_exc_mapq-instance_method" title="#pct_exc_mapq (instance method)">- (String) <strong>pct_exc_mapq</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of aligned bases that were filtered out because they were in
+reads with low mapping quality.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_exc_off_target-instance_method" title="#pct_exc_off_target (instance method)">- (String) <strong>pct_exc_off_target</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of aligned bases that were filtered out because they did not
+align over a target base.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_exc_overlap-instance_method" title="#pct_exc_overlap (instance method)">- (String) <strong>pct_exc_overlap</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of aligned bases that were filtered out because they were the
+second observation from an insert with overlapping reads.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_off_bait-instance_method" title="#pct_off_bait (instance method)">- (String) <strong>pct_off_bait</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of aligned PF bases that mapped neither on or near a bait.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_pf_reads-instance_method" title="#pct_pf_reads (instance method)">- (String) <strong>pct_pf_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>PF reads / total reads.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_pf_uq_reads-instance_method" title="#pct_pf_uq_reads (instance method)">- (String) <strong>pct_pf_uq_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>PF Unique Reads / Total Reads.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_pf_uq_reads_aligned-instance_method" title="#pct_pf_uq_reads_aligned (instance method)">- (String) <strong>pct_pf_uq_reads_aligned</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>PF Reads Aligned / PF Reads.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_selected_bases-instance_method" title="#pct_selected_bases (instance method)">- (String) <strong>pct_selected_bases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>On+Near Bait Bases / PF Bases Aligned.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_100x-instance_method" title="#pct_target_bases_100x (instance method)">- (String) <strong>pct_target_bases_100x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 100X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_10x-instance_method" title="#pct_target_bases_10x (instance method)">- (String) <strong>pct_target_bases_10x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 10X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_1x-instance_method" title="#pct_target_bases_1x (instance method)">- (String) <strong>pct_target_bases_1x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 1X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_20x-instance_method" title="#pct_target_bases_20x (instance method)">- (String) <strong>pct_target_bases_20x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 20X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_2x-instance_method" title="#pct_target_bases_2x (instance method)">- (String) <strong>pct_target_bases_2x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 2X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_30x-instance_method" title="#pct_target_bases_30x (instance method)">- (String) <strong>pct_target_bases_30x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 30X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_40x-instance_method" title="#pct_target_bases_40x (instance method)">- (String) <strong>pct_target_bases_40x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 40X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_target_bases_50x-instance_method" title="#pct_target_bases_50x (instance method)">- (String) <strong>pct_target_bases_50x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of all target bases achieving 50X or greater coverage.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_usable_bases_on_bait-instance_method" title="#pct_usable_bases_on_bait (instance method)">- (String) <strong>pct_usable_bases_on_bait</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of aligned, de-duped, on-bait bases out of the PF bases
+available.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pct_usable_bases_on_target-instance_method" title="#pct_usable_bases_on_target (instance method)">- (String) <strong>pct_usable_bases_on_target</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of aligned, de-duped, on-target bases out of the PF bases
+available.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pf_bases_aligned-instance_method" title="#pf_bases_aligned (instance method)">- (String) <strong>pf_bases_aligned</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF unique bases that are aligned with mapping score &gt; 0 to
+the reference genome.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pf_reads-instance_method" title="#pf_reads (instance method)">- (String) <strong>pf_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of reads that pass the vendor&#39;s filter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pf_unique_reads-instance_method" title="#pf_unique_reads (instance method)">- (String) <strong>pf_unique_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF reads that are not marked as duplicates.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pf_uq_bases_aligned-instance_method" title="#pf_uq_bases_aligned (instance method)">- (String) <strong>pf_uq_bases_aligned</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of bases in the PF aligned reads that are mapped to a reference
+base.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pf_uq_reads_aligned-instance_method" title="#pf_uq_reads_aligned (instance method)">- (String) <strong>pf_uq_reads_aligned</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of PF unique reads that are aligned with mapping score &gt; 0 to
+the reference genome.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_group-instance_method" title="#read_group (instance method)">- (String) <strong>read_group</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Read group.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_id-instance_method" title="#sample_id (instance method)">- (String) <strong>sample_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sample id from the sample_list.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#target_territory-instance_method" title="#target_territory (instance method)">- (Object) <strong>target_territory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#total_reads-instance_method" title="#total_reads (instance method)">- (Object) <strong>total_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Picard metrics class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#zero_cvg_targets_pct-instance_method" title="#zero_cvg_targets_pct (instance method)">- (String) <strong>zero_cvg_targets_pct</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The fraction of targets that did not reach coverage=1 over any base.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#print_attributes-instance_method" title="#print_attributes (instance method)">- (Array&lt;String&gt;) <strong>print_attributes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of attribute values.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variable_order-instance_method" title="#variable_order (instance method)">- (Array&lt;Symbol&gt;) <strong>variable_order</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of attribute symbols.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="at_dropout=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="at_dropout-instance_method">
+  
+    - (<tt>String</tt>) <strong>at_dropout</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A measure of how undercovered &lt;= 50% GC regions are relative to the
+mean. For each GC bin [0..50] we calculate a = % of target territory, and b
+= % of aligned reads aligned to these targets. AT DROPOUT is then
+abs(sum(a-b when a-b &lt; 0)). E.g. if the value is 5% this implies that 5%
+of total reads that should have mapped to GC&lt;=50% regions mapped
+elsewhere.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of at_dropout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_at_dropout'>at_dropout</span>
+  <span class='ivar'>@at_dropout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bait_design_efficiency=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bait_design_efficiency-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bait_design_efficiency</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bait_design_efficiency'>bait_design_efficiency</span>
+  <span class='ivar'>@bait_design_efficiency</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bait_set=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bait_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bait_set</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bait_set'>bait_set</span>
+  <span class='ivar'>@bait_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bait_territory=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bait_territory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bait_territory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bait_territory'>bait_territory</span>
+  <span class='ivar'>@bait_territory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="fold_80_base_penalty=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="fold_80_base_penalty-instance_method">
+  
+    - (<tt>String</tt>) <strong>fold_80_base_penalty</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fold over-coverage necessary to raise 80% of bases in “non-zero-cvg”
+targets to the mean coverage level in those targets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of fold_80_base_penalty</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fold_80_base_penalty'>fold_80_base_penalty</span>
+  <span class='ivar'>@fold_80_base_penalty</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="fold_enrichment=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="fold_enrichment-instance_method">
+  
+    - (<tt>String</tt>) <strong>fold_enrichment</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fold by which the baited region has been amplified above genomic
+background.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of fold_enrichment</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fold_enrichment'>fold_enrichment</span>
+  <span class='ivar'>@fold_enrichment</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="gc_dropout=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="gc_dropout-instance_method">
+  
+    - (<tt>String</tt>) <strong>gc_dropout</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A measure of how undercovered &gt;= 50% GC regions are relative to the
+mean. For each GC bin [50..100] we calculate a = % of target territory, and
+b = % of aligned reads aligned to these targets. GC DROPOUT is then
+abs(sum(a-b when a-b &lt; 0)). E.g. if the value is 5% this implies that 5%
+of total reads that should have mapped to GC&gt;=50% regions mapped
+elsewhere.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of gc_dropout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gc_dropout'>gc_dropout</span>
+  <span class='ivar'>@gc_dropout</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="genome_size=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="genome_size-instance_method">
+  
+    - (<tt>Object</tt>) <strong>genome_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_genome_size'>genome_size</span>
+  <span class='ivar'>@genome_size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="het_snp_q=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="het_snp_q-instance_method">
+  
+    - (<tt>String</tt>) <strong>het_snp_q</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The Phred Scaled Q Score of the theoretical HET SNP sensitivity.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of het_snp_q</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_het_snp_q'>het_snp_q</span>
+  <span class='ivar'>@het_snp_q</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="het_snp_sensitivity=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="het_snp_sensitivity-instance_method">
+  
+    - (<tt>String</tt>) <strong>het_snp_sensitivity</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The theoretical HET SNP sensitivity.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of het_snp_sensitivity</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_het_snp_sensitivity'>het_snp_sensitivity</span>
+  <span class='ivar'>@het_snp_sensitivity</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_library_size=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_library_size-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_library_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The estimated number of unique molecules in the selected part of the
+library.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_library_size</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_library_size'>hs_library_size</span>
+  <span class='ivar'>@hs_library_size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_100x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_100x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_100x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 100X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 100X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 100 * HS_PENALTY_100X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_100x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_100x'>hs_penalty_100x</span>
+  <span class='ivar'>@hs_penalty_100x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_10x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_10x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_10x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 10X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 0X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 10 * HS_PENALTY_10X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_10x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_10x'>hs_penalty_10x</span>
+  <span class='ivar'>@hs_penalty_10x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_20x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_20x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_20x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 20X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 20X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 20 * HS_PENALTY_20X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_20x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_20x'>hs_penalty_20x</span>
+  <span class='ivar'>@hs_penalty_20x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_30x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_30x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_30x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 30X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 30X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 30 * HS_PENALTY_30X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_30x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_30x'>hs_penalty_30x</span>
+  <span class='ivar'>@hs_penalty_30x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_40x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_40x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_40x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 40X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 40X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 40 * HS_PENALTY_40X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_40x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_40x'>hs_penalty_40x</span>
+  <span class='ivar'>@hs_penalty_40x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="hs_penalty_50x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hs_penalty_50x-instance_method">
+  
+    - (<tt>String</tt>) <strong>hs_penalty_50x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The “hybrid selection penalty” incurred to get 80% of target bases to 50X.
+This metric should be interpreted as: if I have a design with 10 megabases
+of target, and want to get 50X coverage I need to sequence until
+PF_ALIGNED_BASES = 10^7 * 50 * HS_PENALTY_50X.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of hs_penalty_50x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hs_penalty_50x'>hs_penalty_50x</span>
+  <span class='ivar'>@hs_penalty_50x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="library=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="library-instance_method">
+  
+    - (<tt>String</tt>) <strong>library</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Panel library</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of library</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_library'>library</span>
+  <span class='ivar'>@library</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="mean_bait_coverage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="mean_bait_coverage-instance_method">
+  
+    - (<tt>String</tt>) <strong>mean_bait_coverage</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The mean coverage of all baits in the experiment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of mean_bait_coverage</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mean_bait_coverage'>mean_bait_coverage</span>
+  <span class='ivar'>@mean_bait_coverage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="mean_target_coverage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="mean_target_coverage-instance_method">
+  
+    - (<tt>String</tt>) <strong>mean_target_coverage</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The mean coverage of targets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of mean_target_coverage</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mean_target_coverage'>mean_target_coverage</span>
+  <span class='ivar'>@mean_target_coverage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="median_target_coverage=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="median_target_coverage-instance_method">
+  
+    - (<tt>String</tt>) <strong>median_target_coverage</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The median coverage of targets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of median_target_coverage</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_median_target_coverage'>median_target_coverage</span>
+  <span class='ivar'>@median_target_coverage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="near_bait_bases=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="near_bait_bases-instance_method">
+  
+    - (<tt>String</tt>) <strong>near_bait_bases</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF aligned bases that mapped to within a fixed interval of a
+baited region, but not on a baited region.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of near_bait_bases</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_near_bait_bases'>near_bait_bases</span>
+  <span class='ivar'>@near_bait_bases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="off_bait_bases=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="off_bait_bases-instance_method">
+  
+    - (<tt>String</tt>) <strong>off_bait_bases</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF aligned bases that mapped to neither on or near a bait.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of off_bait_bases</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_off_bait_bases'>off_bait_bases</span>
+  <span class='ivar'>@off_bait_bases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="on_bait_bases=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="on_bait_bases-instance_method">
+  
+    - (<tt>String</tt>) <strong>on_bait_bases</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF aligned bases that mapped to a baited region of the
+genome.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of on_bait_bases</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_bait_bases'>on_bait_bases</span>
+  <span class='ivar'>@on_bait_bases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="on_bait_vs_selected=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="on_bait_vs_selected-instance_method">
+  
+    - (<tt>String</tt>) <strong>on_bait_vs_selected</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of on+near bait bases that are on as opposed to near.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of on_bait_vs_selected</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_bait_vs_selected'>on_bait_vs_selected</span>
+  <span class='ivar'>@on_bait_vs_selected</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="on_target_bases=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="on_target_bases-instance_method">
+  
+    - (<tt>String</tt>) <strong>on_target_bases</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF aligned bases that mapped to a targeted region of the
+genome.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of on_target_bases</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_target_bases'>on_target_bases</span>
+  <span class='ivar'>@on_target_bases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_exc_baseq=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_exc_baseq-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_exc_baseq</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of aligned bases that were filtered out because they were of
+low base quality.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_exc_baseq</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_exc_baseq'>pct_exc_baseq</span>
+  <span class='ivar'>@pct_exc_baseq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_exc_dupe=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_exc_dupe-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_exc_dupe</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of aligned bases that were filtered out because they were in
+reads marked as duplicates.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_exc_dupe</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_exc_dupe'>pct_exc_dupe</span>
+  <span class='ivar'>@pct_exc_dupe</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_exc_mapq=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_exc_mapq-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_exc_mapq</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of aligned bases that were filtered out because they were in
+reads with low mapping quality.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_exc_mapq</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_exc_mapq'>pct_exc_mapq</span>
+  <span class='ivar'>@pct_exc_mapq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_exc_off_target=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_exc_off_target-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_exc_off_target</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of aligned bases that were filtered out because they did not
+align over a target base.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_exc_off_target</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_exc_off_target'>pct_exc_off_target</span>
+  <span class='ivar'>@pct_exc_off_target</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_exc_overlap=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_exc_overlap-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_exc_overlap</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of aligned bases that were filtered out because they were the
+second observation from an insert with overlapping reads.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_exc_overlap</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_exc_overlap'>pct_exc_overlap</span>
+  <span class='ivar'>@pct_exc_overlap</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_off_bait=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_off_bait-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_off_bait</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of aligned PF bases that mapped neither on or near a bait.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_off_bait</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_off_bait'>pct_off_bait</span>
+  <span class='ivar'>@pct_off_bait</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_pf_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_pf_reads-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_pf_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>PF reads / total reads.  The percent of reads passing filter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_pf_reads</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_pf_reads'>pct_pf_reads</span>
+  <span class='ivar'>@pct_pf_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_pf_uq_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_pf_uq_reads-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_pf_uq_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>PF Unique Reads / Total Reads.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_pf_uq_reads</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_pf_uq_reads'>pct_pf_uq_reads</span>
+  <span class='ivar'>@pct_pf_uq_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_pf_uq_reads_aligned=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_pf_uq_reads_aligned-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_pf_uq_reads_aligned</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>PF Reads Aligned / PF Reads.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_pf_uq_reads_aligned</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_pf_uq_reads_aligned'>pct_pf_uq_reads_aligned</span>
+  <span class='ivar'>@pct_pf_uq_reads_aligned</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_selected_bases=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_selected_bases-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_selected_bases</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>On+Near Bait Bases / PF Bases Aligned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_selected_bases</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_selected_bases'>pct_selected_bases</span>
+  <span class='ivar'>@pct_selected_bases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_100x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_100x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_100x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 100X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_100x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_100x'>pct_target_bases_100x</span>
+  <span class='ivar'>@pct_target_bases_100x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_10x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_10x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_10x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 10X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_10x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_10x'>pct_target_bases_10x</span>
+  <span class='ivar'>@pct_target_bases_10x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_1x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_1x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_1x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 1X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_1x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_1x'>pct_target_bases_1x</span>
+  <span class='ivar'>@pct_target_bases_1x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_20x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_20x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_20x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 20X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_20x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_20x'>pct_target_bases_20x</span>
+  <span class='ivar'>@pct_target_bases_20x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_2x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_2x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_2x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 2X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_2x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_2x'>pct_target_bases_2x</span>
+  <span class='ivar'>@pct_target_bases_2x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_30x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_30x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_30x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 30X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_30x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_30x'>pct_target_bases_30x</span>
+  <span class='ivar'>@pct_target_bases_30x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_40x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_40x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_40x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 40X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_40x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_40x'>pct_target_bases_40x</span>
+  <span class='ivar'>@pct_target_bases_40x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_target_bases_50x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_target_bases_50x-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_target_bases_50x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of all target bases achieving 50X or greater coverage.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_target_bases_50x</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_target_bases_50x'>pct_target_bases_50x</span>
+  <span class='ivar'>@pct_target_bases_50x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_usable_bases_on_bait=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_usable_bases_on_bait-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_usable_bases_on_bait</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of aligned, de-duped, on-bait bases out of the PF bases
+available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_usable_bases_on_bait</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_usable_bases_on_bait'>pct_usable_bases_on_bait</span>
+  <span class='ivar'>@pct_usable_bases_on_bait</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pct_usable_bases_on_target=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pct_usable_bases_on_target-instance_method">
+  
+    - (<tt>String</tt>) <strong>pct_usable_bases_on_target</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of aligned, de-duped, on-target bases out of the PF bases
+available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pct_usable_bases_on_target</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pct_usable_bases_on_target'>pct_usable_bases_on_target</span>
+  <span class='ivar'>@pct_usable_bases_on_target</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pf_bases_aligned=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pf_bases_aligned-instance_method">
+  
+    - (<tt>String</tt>) <strong>pf_bases_aligned</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF unique bases that are aligned with mapping score &gt; 0 to
+the reference genome.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pf_bases_aligned</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pf_bases_aligned'>pf_bases_aligned</span>
+  <span class='ivar'>@pf_bases_aligned</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pf_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pf_reads-instance_method">
+  
+    - (<tt>String</tt>) <strong>pf_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of reads that pass the vendor&#39;s filter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pf_reads</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pf_reads'>pf_reads</span>
+  <span class='ivar'>@pf_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pf_unique_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pf_unique_reads-instance_method">
+  
+    - (<tt>String</tt>) <strong>pf_unique_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF reads that are not marked as duplicates.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pf_unique_reads</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pf_unique_reads'>pf_unique_reads</span>
+  <span class='ivar'>@pf_unique_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pf_uq_bases_aligned=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pf_uq_bases_aligned-instance_method">
+  
+    - (<tt>String</tt>) <strong>pf_uq_bases_aligned</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of bases in the PF aligned reads that are mapped to a reference
+base. Accounts for clipping and gaps.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pf_uq_bases_aligned</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pf_uq_bases_aligned'>pf_uq_bases_aligned</span>
+  <span class='ivar'>@pf_uq_bases_aligned</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pf_uq_reads_aligned=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pf_uq_reads_aligned-instance_method">
+  
+    - (<tt>String</tt>) <strong>pf_uq_reads_aligned</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of PF unique reads that are aligned with mapping score &gt; 0 to
+the reference genome.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pf_uq_reads_aligned</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pf_uq_reads_aligned'>pf_uq_reads_aligned</span>
+  <span class='ivar'>@pf_uq_reads_aligned</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_group=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="read_group-instance_method">
+  
+    - (<tt>String</tt>) <strong>read_group</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Read group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of read_group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_group'>read_group</span>
+  <span class='ivar'>@read_group</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sample_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sample_id-instance_method">
+  
+    - (<tt>String</tt>) <strong>sample_id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sample id from the sample_list</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of sample_id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_id'>sample_id</span>
+  <span class='ivar'>@sample_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="target_territory=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="target_territory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>target_territory</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_target_territory'>target_territory</span>
+  <span class='ivar'>@target_territory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="total_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="total_reads-instance_method">
+  
+    - (<tt>Object</tt>) <strong>total_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Picard metrics class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_total_reads'>total_reads</span>
+  <span class='ivar'>@total_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="zero_cvg_targets_pct=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="zero_cvg_targets_pct-instance_method">
+  
+    - (<tt>String</tt>) <strong>zero_cvg_targets_pct</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The fraction of targets that did not reach coverage=1 over any base.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of zero_cvg_targets_pct</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_zero_cvg_targets_pct'>zero_cvg_targets_pct</span>
+  <span class='ivar'>@zero_cvg_targets_pct</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="print_attributes-instance_method">
+  
+    - (<tt>Array&lt;String&gt;</tt>) <strong>print_attributes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array of attribute values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of attribute values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_print_attributes'>print_attributes</span>
+		<span class='id identifier rubyid_attr_array'>attr_array</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_variables'>instance_variables</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+			<span class='id identifier rubyid_attr_array'>attr_array</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='rparen'>)</span><span class='rparen'>)</span>
+ 		<span class='kw'>end</span>
+ 			<span class='kw'>return</span> <span class='id identifier rubyid_attr_array'>attr_array</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="variable_order-instance_method">
+  
+    - (<tt>Array&lt;Symbol&gt;</tt>) <strong>variable_order</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array of attribute symbols</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of attribute symbols</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'metric.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_variable_order'>variable_order</span>
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:bait_set</span><span class='comma'>,</span> <span class='symbol'>:genome_size</span><span class='comma'>,</span> <span class='symbol'>:bait_territory</span><span class='comma'>,</span> <span class='symbol'>:target_territory</span><span class='comma'>,</span> <span class='symbol'>:bait_design_efficiency</span><span class='comma'>,</span> <span class='symbol'>:total_reads</span><span class='comma'>,</span> <span class='symbol'>:pf_reads</span><span class='comma'>,</span> <span class='symbol'>:pf_unique_reads</span><span class='comma'>,</span> <span class='symbol'>:pct_pf_reads</span><span class='comma'>,</span> <span class='symbol'>:pct_pf_uq_reads</span><span class='comma'>,</span> <span class='symbol'>:pf_uq_reads_aligned</span><span class='comma'>,</span> <span class='symbol'>:pct_pf_uq_reads_aligned</span><span class='rbracket'>]</span>          
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='symbol'>:pf_uq_bases_aligned</span><span class='comma'>,</span> <span class='symbol'>:on_bait_bases</span><span class='comma'>,</span> <span class='symbol'>:near_bait_bases</span><span class='comma'>,</span> <span class='symbol'>:off_bait_bases</span><span class='comma'>,</span> <span class='symbol'>:on_target_bases</span><span class='comma'>,</span> <span class='symbol'>:pct_selected_bases</span><span class='comma'>,</span> <span class='symbol'>:pct_off_bait</span><span class='comma'>,</span> <span class='symbol'>:on_bait_vs_selected</span><span class='comma'>,</span> <span class='symbol'>:mean_bait_coverage</span><span class='comma'>,</span> <span class='symbol'>:mean_target_coverage</span><span class='comma'>,</span> <span class='symbol'>:median_target_coverage</span><span class='rbracket'>]</span>                                                                                                                                                                                   
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='symbol'>:pct_usable_bases_on_bait</span><span class='comma'>,</span> <span class='symbol'>:pct_usable_bases_on_target</span><span class='comma'>,</span> <span class='symbol'>:fold_enrichment</span><span class='comma'>,</span> <span class='symbol'>:zero_cvg_targets_pct</span><span class='comma'>,</span> <span class='symbol'>:pct_exc_dupe</span><span class='comma'>,</span> <span class='symbol'>:pct_exc_mapq</span><span class='comma'>,</span> <span class='symbol'>:pct_exc_baseq</span><span class='comma'>,</span> <span class='symbol'>:pct_exc_overlap</span><span class='comma'>,</span> <span class='symbol'>:pct_exc_off_target</span><span class='comma'>,</span> <span class='symbol'>:fold_80_base_penalty</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_1x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_2x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_10x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_20x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_30x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_40x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_50x</span><span class='comma'>,</span> <span class='symbol'>:pct_target_bases_100x</span><span class='rbracket'>]</span>                                                                                                                                                                 
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='symbol'>:hs_library_size</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_10x</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_20x</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_30x</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_40x</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_50x</span><span class='comma'>,</span> <span class='symbol'>:hs_penalty_100x</span><span class='comma'>,</span> <span class='symbol'>:at_dropout</span><span class='comma'>,</span> <span class='symbol'>:gc_dropout</span><span class='comma'>,</span> <span class='symbol'>:het_snp_sensitivity</span><span class='comma'>,</span> <span class='symbol'>:het_snp_q</span><span class='comma'>,</span> <span class='symbol'>:sample_id</span><span class='comma'>,</span> <span class='symbol'>:library</span><span class='comma'>,</span> <span class='symbol'>:read_group</span><span class='rbracket'>]</span>
+		<span class='kw'>return</span> <span class='id identifier rubyid_variable_order'>variable_order</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jan 26 14:40:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

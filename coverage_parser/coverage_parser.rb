@@ -346,7 +346,7 @@ class CoverageParser
   			this_book = parser.write_sample_worksheet(this_sample, this_book, this_batch)
   		end
   		
-  		this_book.write "#{this_batch.base_path}/#{this_batch.batch_id}/results/#{this_batch.batch_id}_metrics_coverage.xls"
+  		this_book.write "#{this_batch.base_path}/#{this_batch.batch_id}/results/#{this_batch.batch_id}_metrics_coverage.#{Time.now.strftime("%d-%m-%Y-%H%M%S")}.xls"
   
 	end
   

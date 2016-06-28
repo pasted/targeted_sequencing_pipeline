@@ -1,23 +1,25 @@
 class AlamutParser
   require 'yaml'
   require 'smarter_csv'
+  require 'axlsx'
   require_relative 'interval'
   require_relative 'region'
   require_relative '../shared/gene'
   require_relative '../shared/phenotype'
   require_relative '../shared/transcript_store'
-  require_relative 'sample_store'
+  require_relative '../shared/sample_store'
   require_relative '../shared/variant'
   require_relative '../shared/sample'
   require_relative '../shared/batch'
   require_relative '../shared/panel'
   require_relative '../shared/metric'
-  require 'spreadsheet'
+  require_relative '../shared/cnv'
+
   
   attr_accessor :batch_id, :base_path, :variants_directory, :intervals_directory, :transcript_file_path 
   attr_accessor :unwanted_file_path, :wanted_file_path, :sample_list_path, :panel_id, :panel_version
   
-  def parse_file(file_name, sample_id_lc)
+  def parse_file(file_name, panel_version_lc, ex_number_lc)
   	options = { :col_sep => "\t" }
   	variant_array = Array.new 
   	
@@ -25,92 +27,108 @@ class AlamutParser
   	
   		SmarterCSV.process( file_name, options ) do |csv|
   			this_variant = Variant.new
-  			#puts csv.first.inspect
   			
-  			this_variant.chromosome 					= csv.first[:chrom]
-  			this_variant.position							= csv.first[:pos]
-  			this_variant.genomic_dna_start		= csv.first[:gdnastart]
-  			this_variant.genomic_dna_end			= csv.first[:gdnaend]
-  			this_variant.gene 								= csv.first[:gene]
-  			this_variant.genotype							=	csv.first[:"gt_(#{sample_id_lc})"]
-  			this_variant.full_transcript 			= csv.first[:transcript]
-  			this_variant.var_type							= csv.first[:vartype]
-  			this_variant.coding_effect				= csv.first[:codingeffect]
-  			this_variant.var_location 				= csv.first[:varlocation]
-  			this_variant.genomic_nomen 				= csv.first[:gnomen]
-  			this_variant.cdna_nomen	 					= csv.first[:cnomen]
-  			this_variant.protein_nomen 				= csv.first[:pnomen]
-  			this_variant.exon									= csv.first[:exon]
-  			this_variant.intron								= csv.first[:intron]
+  			this_variant.assembly												= csv.first[:assembly]
+  			this_variant.chromosome 										= csv.first[:chrom]
+  			this_variant.position												= csv.first[:inputpos]
+  			this_variant.genomic_dna_start							= csv.first[:gdnastart]
+  			this_variant.genomic_dna_end								= csv.first[:gdnaend]
+  			this_variant.complementary_dna_start				= csv.first[:cdnastart]
+  			this_variant.complementary_dna_end					= csv.first[:cdnaend]
+  			this_variant.gene 													= csv.first[:gene]
+  			this_variant.genotype												= csv.first[:"gt_(#{panel_version_lc}_#{ex_number_lc})"]
+  			this_variant.full_transcript 								= csv.first[:transcript]
+  			this_variant.transcript_length							= csv.first[:translen]
+  			this_variant.var_type												= csv.first[:vartype]
+  			this_variant.coding_effect									= csv.first[:codingeffect]
+  			this_variant.var_location 									= csv.first[:varlocation]
+  			this_variant.genomic_nomen 									= csv.first[:gnomen]
+  			this_variant.cdna_nomen	 										= csv.first[:cnomen]
+  			this_variant.protein_nomen 									= csv.first[:pnomen]
+  			this_variant.protein												=	csv.first[:protein]
+  			this_variant.alt_protein_nomen							= csv.first[:alt_pnomen]
+  			this_variant.omim_id												= csv.first[:omimid]
+  			this_variant.exon														= csv.first[:exon]
+  			this_variant.intron													= csv.first[:intron]
   			this_variant.distance_nearest_splice_site 	= csv.first[:distnearestss]
   			this_variant.nearest_splice_site_type 			= csv.first[:nearestsstype]
   			this_variant.nearest_splice_site_change 		= csv.first[:nearestsschange]
   			this_variant.local_splice_effect						= csv.first[:localspliceeffect]
-  			this_variant.rs_id 									= csv.first[:rsid]
-  			this_variant.rs_validated 					= csv.first[:rsvalidated]
-  			this_variant.rs_maf									= csv.first[:rsmaf]
-  			this_variant.genomes_1000_freq			= csv.first[:"1000g_AF"]
-  			this_variant.genomes_1000_afr_freq	= csv.first[:"1000g_AFR_AF"]
-  			this_variant.genomes_1000_sas_freq  = csv.first[:"1000g_SAS_AF"]
-  			this_variant.genomes_1000_eas_freq  = csv.first[:"1000g_EAS_AF"]
-  			this_variant.genomes_1000_eur_freq  = csv.first[:"1000g_EUR_AF"]
-  			this_variant.genomes_1000_amr_freq  = csv.first[:"1000g_AMR_AF"]
-  			this_variant.exac_all_freq       		= csv.first[:exacallfreq]
-  			this_variant.exac_afr_freq       	  = csv.first[:exacafrfreq]
-  			this_variant.exac_amr_freq       	  = csv.first[:exacamrfreq]
-  			this_variant.exac_eas_freq       	  = csv.first[:exaceasfreq]
-  			this_variant.exac_sas_freq       	  = csv.first[:exacsasfreq]
-  			this_variant.exac_nfe_freq       	  = csv.first[:exacnfefreq]
-  			this_variant.exac_fin_freq       	  = csv.first[:exacfinfreq]
-  			this_variant.exac_oth_freq       	  = csv.first[:exacothfreq]
-  			this_variant.exac_afr_hmz       	  = csv.first[:exacafrhmz]
-  			this_variant.exac_amr_hmz        	  = csv.first[:exacamrhmz]
-  			this_variant.exac_eas_hmz           = csv.first[:exaceashmz]
-  			this_variant.exac_sas_hmz        	  = csv.first[:exacsashmz]
-  			this_variant.exac_nfe_hmz        	  = csv.first[:exacnfehmz]
-  			this_variant.exac_fin_hmz        	  = csv.first[:exacfinhmz]
-  			this_variant.exac_oth_hmz        	  = csv.first[:exacothhmz]
-  			this_variant.exac_filter         	  = csv.first[:exacfilter]
-  			this_variant.exac_read_depth        = csv.first[:exacreaddepth]
-  			this_variant.clin_var_ids           = csv.first[:clinvarids]
-  			this_variant.clin_var_origins    	  = csv.first[:clinvarorigins]
-  			this_variant.clin_var_methods    	  = csv.first[:clinvarmethods]
-  			this_variant.clin_var_clin_signifs	= csv.first[:clinvarclinsignifs]
-  			this_variant.clin_var_review_status	= csv.first[:clinvarreviewstatus]
-  			this_variant.clin_var_phenotypes	  = csv.first[:clinvarphenotypes]
-  			this_variant.cosmic_ids         	  = csv.first[:cosmicids]
-  			this_variant.cosmic_tissues      	  = csv.first[:cosmictissues]
-  			this_variant.cosmic_freqs           = csv.first[:cosmicfreqs]
-  			this_variant.cosmic_sample_counts	  = csv.first[:cosmicsamplecounts]
+  			this_variant.wt_ssf_score										= csv.first[:wtssfscore]
+  			this_variant.wt_max_ent_score								= csv.first[:wtmaxentscore]
+  			this_variant.wt_nns_score										= csv.first[:wtnnsscore]
+  			this_variant.wt_gs_score										= csv.first[:wtgsscore]
+  			this_variant.wt_hsf_score										= csv.first[:wthsfscore]
+  			this_variant.var_ssf_score									= csv.first[:varssfscore]
+  			this_variant.var_max_ent_score							= csv.first[:varmaxentscore]
+  			this_variant.var_nns_score									= csv.first[:varnnsscore]
+  			this_variant.var_gs_score										= csv.first[:vargsscore]
+  			this_variant.var_hsf_score									= csv.first[:varhsfscore]
+  			this_variant.rs_id 													= csv.first[:rsid]
+  			this_variant.rs_validated 									= csv.first[:rsvalidated]
+  			this_variant.rs_maf													= csv.first[:rsmaf]
+  			this_variant.genomes_1000_freq							= csv.first[:"1000g_af"]
+  			this_variant.genomes_1000_afr_freq					= csv.first[:"1000g_afr_af"]
+  			this_variant.genomes_1000_sas_freq  				= csv.first[:"1000g_sas_af"]
+  			this_variant.genomes_1000_eas_freq  				= csv.first[:"1000g_eas_af"]
+  			this_variant.genomes_1000_eur_freq  				= csv.first[:"1000g_eur_af"]
+  			this_variant.genomes_1000_amr_freq  				= csv.first[:"1000g_amr_af"]
+  			this_variant.exac_all_freq       						= csv.first[:exacallfreq]
+  			this_variant.exac_afr_freq									= csv.first[:exacafrfreq]
+  			this_variant.exac_amr_freq									= csv.first[:exacamrfreq]
+  			this_variant.exac_eas_freq									= csv.first[:exaceasfreq]
+  			this_variant.exac_sas_freq									= csv.first[:exacsasfreq]
+  			this_variant.exac_nfe_freq									= csv.first[:exacnfefreq]
+  			this_variant.exac_fin_freq									= csv.first[:exacfinfreq]
+  			this_variant.exac_oth_freq									= csv.first[:exacothfreq]
+  			this_variant.exac_afr_hmz 									= csv.first[:exacafrhmz]
+  			this_variant.exac_amr_hmz 									= csv.first[:exacamrhmz]
+  			this_variant.exac_eas_hmz           				= csv.first[:exaceashmz]
+  			this_variant.exac_sas_hmz        	  				= csv.first[:exacsashmz]
+  			this_variant.exac_nfe_hmz        	  				= csv.first[:exacnfehmz]
+  			this_variant.exac_fin_hmz        	  				= csv.first[:exacfinhmz]
+  			this_variant.exac_oth_hmz        	  				= csv.first[:exacothhmz]
+  			this_variant.exac_filter         	  				= csv.first[:exacfilter]
+  			this_variant.exac_read_depth        				= csv.first[:exacreaddepth]
+  			this_variant.clin_var_ids           				= csv.first[:clinvarids]
+  			this_variant.clin_var_origins    	  				= csv.first[:clinvarorigins]
+  			this_variant.clin_var_methods    	 	 				= csv.first[:clinvarmethods]
+  			this_variant.clin_var_clin_signifs					= csv.first[:clinvarclinsignifs]
+  			this_variant.clin_var_review_status					= csv.first[:clinvarreviewstatus]
+  			this_variant.clin_var_phenotypes	  				= csv.first[:clinvarphenotypes]
+  			this_variant.cosmic_ids         	  				= csv.first[:cosmicids]
+  			this_variant.cosmic_tissues      	  				= csv.first[:cosmictissues]
+  			this_variant.cosmic_freqs           				= csv.first[:cosmicfreqs]
+  			this_variant.cosmic_sample_counts	  				= csv.first[:cosmicsamplecounts]
   			
-  			this_variant.esp_all_maf						= csv.first[:espallmaf]
-  			this_variant.hgmd_phenotype 				= csv.first[:hgmdphenotype]
-  			this_variant.hgmd_pub_med_id 				= csv.first[:hgmdpubmedid]
-  			this_variant.hgmd_sub_category 			= csv.first[:hgmdsubcategory]
-  			this_variant.n_orthos								= csv.first[:northos]
-  			this_variant.conserved_orthos				= csv.first[:conservedorthos]
-  			this_variant.conserved_dist_species	= csv.first[:conserveddistspecies]
-  			this_variant.grantham_dist					= csv.first[:granthamdist]
-  			this_variant.agv_gd_class						= csv.first[:agvgdclass]
-  			this_variant.sift_prediction				= csv.first[:siftprediction]
-  			this_variant.wt_nuc									=	csv.first[:wtnuc]
-  			this_variant.var_nuc								=	csv.first[:varnuc]
-  			this_variant.ins_nucs								=	csv.first[:insnucs]
-  			this_variant.del_nucs								= csv.first[:delnucs]
-  			this_variant.filter_vcf							= csv.first[:"filter_(vcf)"]
+  			this_variant.esp_all_maf										= csv.first[:espallmaf]
+  			this_variant.hgmd_phenotype 								= csv.first[:hgmdphenotype]
+  			this_variant.hgmd_pub_med_id 								= csv.first[:hgmdpubmedid]
+  			this_variant.hgmd_sub_category 							= csv.first[:hgmdsubcategory]
+  			this_variant.n_orthos												= csv.first[:northos]
+  			this_variant.conserved_orthos								= csv.first[:conservedorthos]
+  			this_variant.conserved_dist_species					= csv.first[:conserveddistspecies]
+  			this_variant.grantham_dist									= csv.first[:granthamdist]
+  			this_variant.agv_gd_class										= csv.first[:agvgdclass]
+  			this_variant.sift_prediction								= csv.first[:siftprediction]
+  			this_variant.wt_nuc													= csv.first[:wtnuc]
+  			this_variant.var_nuc												= csv.first[:varnuc]
+  			this_variant.ins_nucs												= csv.first[:insnucs]
+  			this_variant.del_nucs												= csv.first[:delnucs]
+  			this_variant.filter_vcf											= csv.first[:"filter_(vcf)"]
   			
-  			this_variant.ad											= csv.first[:"ad_(#{sample_id_lc})"]
-  			this_variant.dp											= csv.first[:"dp_(#{sample_id_lc})"]
-  			this_variant.gq											= csv.first[:"gq_(#{sample_id_lc})"]
-  			this_variant.gt											= csv.first[:"gt_(#{sample_id_lc})"]
-  			this_variant.pl											= csv.first[:"pl_(#{sample_id_lc})"]
+  			this_variant.ad															= csv.first[:"ad_(#{panel_version_lc}_#{ex_number_lc})"]
+  			this_variant.dp															= csv.first[:"dp_(#{panel_version_lc}_#{ex_number_lc})"]
+  			this_variant.gq															= csv.first[:"gq_(#{panel_version_lc}_#{ex_number_lc})"]
+  			this_variant.gt															= csv.first[:"gt_(#{panel_version_lc}_#{ex_number_lc})"]
+  			this_variant.pl															= csv.first[:"pl_(#{panel_version_lc}_#{ex_number_lc})"]
   			
   			this_variant.parse_transcript()
   			variant_array.push(this_variant)
-  			#puts this_variant.inspect
+  			
   		end
   	else
-  		puts "ERROR :: variants file has no content :: SAMPLE ID : #{sample_id_lc}"
+  		puts "ERROR :: variants file has no content :: SAMPLE ID : #{ex_number_lc}"
   		if File.exists?(file_name)
   			puts "File exists? #{File.exists?(file_name)}"
   			puts "File size? #{File.stat(file_name).size}"
@@ -166,7 +184,7 @@ class AlamutParser
   		this_unwanted_variant.reason_for_filtering 	= csv.first[:reason_for_filtering]
   		
   		unwanted_array.push(this_unwanted_variant)
-  		#puts csv.first.inspect
+
   	end
   	
   	return unwanted_array
@@ -185,10 +203,33 @@ class AlamutParser
 
   		
   		wanted_array.push(this_wanted_region)
-  		#puts csv.first.inspect
+
   	end
   	
   	return wanted_array
+	end
+	
+	def parse_bed_intervals(intervals_file_path)
+  		
+  		interval_array = Array.new
+  		
+  		File.open(intervals_file_path, "r") do |this_file|
+  			this_file.each_line do |line|
+  				
+  				this_interval = Interval.new
+  				interval_attributes = line.split("\t")
+  				this_interval.chromosome 			= interval_attributes[0]
+  				this_interval.genomic_start		= interval_attributes[1]
+  				this_interval.genomic_end 		= interval_attributes[2]		
+  				this_interval.strand 					= "+"
+  				this_interval.interval_name 	= interval_attributes[3].strip!	
+  			
+  				interval_array.push(this_interval)
+  			end
+  			
+  		end
+  	
+  		return interval_array
 	end
 	
 	def parse_intervals(intervals_file_path)
@@ -211,6 +252,33 @@ class AlamutParser
   	return interval_array
 	end
 	
+	def parse_cnvs(panel, cnvs_file_path)
+		options = { :col_sep => "," }
+		cnv_array = Array.new
+		if File.exists?(cnvs_file_path)
+  			SmarterCSV.process( cnvs_file_path, options ) do |csv|
+  				this_cnv = Cnv.new
+  
+  				this_cnv.start_p 					= csv.first[:"start.p"]
+  				this_cnv.end_p 						= csv.first[:"end.p"]
+  				this_cnv.type 						= csv.first[:type]
+  				this_cnv.nexons 					= csv.first[:nexons]
+  				this_cnv.genome_start 		= csv.first[:start]
+  				this_cnv.genome_end 			= csv.first[:end]
+  				this_cnv.chromosome 			= csv.first[:chromosome]
+  				this_cnv.id	 							= csv.first[:id]
+  				this_cnv.bayes_factor			= csv.first[:bf]
+  				this_cnv.reads_expected 	= csv.first[:"reads.expected"]
+  				this_cnv.reads_observed 	= csv.first[:"reads.observed"]
+  				this_cnv.reads_ratio 			= csv.first[:"reads.ratio"]
+  				this_cnv.exons						= csv.first[:"#{panel}_exons"]
+  				cnv_array.push(this_cnv)
+  			end
+  		end
+  	
+  		return cnv_array
+	end
+	
 	def load_phenotypes(transcript_file_path)
 		phenotype_list = YAML.load_file("#{transcript_file_path}")
 		return phenotype_list
@@ -221,7 +289,7 @@ class AlamutParser
 			this_metric = Metric.new
 			IO.foreach("#{input_file_path}") do |this_line| 
 			
-				if ( this_line.match /(^\r|^\n|^\r\n|^#)/ )
+				if ( this_line.match(/(^\r|^\n|^\r\n|^#)/) )
 					counter = counter + 1
 				else
 					if counter == metrics_line.to_i
@@ -239,64 +307,90 @@ class AlamutParser
 					counter = counter + 1
 				end
 			end
+			
 			return this_metric
 	end
 	
 	def populate_metrics(samples, this_batch, this_parser)
 		processed_samples = Array.new
 		samples.each do |this_sample|
-			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.sample_id}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
+			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.ex_number}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
 			this_metric = this_parser.parse_metrics(phenotype_metric_file_path, this_batch.phenotype_metric_line)
+			
 			this_sample.add_metrics(Array.new.push(this_metric))
 			processed_samples.push(this_sample)
 		end
+		
 		return processed_samples
 	end
   
-  #Load the config YAML file and pass the settings to local variables
-  this_batch = YAML.load_file('../configuration/config.yaml')
-  
-  #Init AlamutParser class
-  parser = AlamutParser.new()
-  
-  parser.batch_id = this_batch.batch_id
-  parser.base_path = this_batch.base_path
-  parser.sample_list_path = this_batch.sample_list_path
+	def run_parser(parser)
+		
+		path = File.expand_path(__FILE__)
+		base_path = path.split("/scripts/").first
+		
+  		#Load the config YAML file and pass the settings to local variables
+  		this_batch = YAML.load_file("#{base_path}/scripts/configuration/config.yaml")
+  		
+  		#Init AlamutParser class
+  		#parser = AlamutParser.new()
+  		
+  		parser.batch_id = this_batch.batch_id
+  		parser.base_path = this_batch.base_path
+  		parser.sample_list_path = this_batch.sample_list_path
+  		
+  		
+  		samples = parser.parse_sample_list("#{base_path}/#{parser.sample_list_path}")
+    	
+  		#populate phenotype specific metrics for each sample
+  		samples = parser.populate_metrics(samples, this_batch, parser)
+  		
+  		sample_store = SampleStore.new(samples)
+  		
+  		#build the workbook
+  		#this_book = Spreadsheet::Workbook.new
+  		axlsx_package = Axlsx::Package.new
+  		this_book = axlsx_package.workbook
+  		title_font = this_book.styles.add_style :bg_color => "5CA56B", :fg_color => "FF", :sz => 12
+   	
+  		#this_book = sample_store.process_samples(parser, this_batch, this_book, title_font)
+  		tmp_sample_store = sample_store.process_samples(parser, this_batch, this_book, title_font)
+  		
+  		puts "#################"
+  		puts tmp_sample_store.cnv_store.inspect
+  		puts "#################"
+  		
+  		this_book = tmp_sample_store.samples_to_axlsx(this_book, title_font)
+		
+  	
+		#write out intervals that have been analysed by phenotype
+		
+		available_phenotypes = sample_store.available_phenotypes
+  	
+  	
+		#available_phenotypes.each do |phenotype|
+		#	intervals = parser.parse_intervals("#{parser.intervals_directory}/#{parser.panel_version}_#{phenotype}_diagnostic_ROI.tsv")
+		#	this_sheet = this_book.create_worksheet :name => "#{phenotype} intervals"
+		#	row_number = 0
+		#	intervals.each do |this_interval|
+		#		this_sheet.row(row_number).push "#{this_interval.chromosome}","#{this_interval.genomic_start}","#{this_interval.genomic_end}","#{this_interval.strand}","#{this_interval.interval_name}"
+ 		#		row_number = row_number + 1
+		#	end
+		#	
+		#end
 
+		axlsx_package.serialize "#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.#{Time.now.strftime("%d-%m-%Y-%H%M%S")}.xlsx"
+		
+		#File.open("#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.yaml", 'w+') {|f| f.write(sample_store.to_yaml)}
 
-  samples = parser.parse_sample_list(parser.sample_list_path)
-  
-  #populate phenotype specific metrics for each sample
-  samples = parser.populate_metrics(samples, this_batch, parser)
-  
-  sample_store = SampleStore.new(samples)
-  
-  #build the workbook
-  this_book = Spreadsheet::Workbook.new
-  
-  this_book = sample_store.process_samples(parser, this_batch, this_book)
- 
-  this_book = sample_store.samples_to_excel(this_book)
+		return sample_store
+
+	end
 	
+	if __FILE__ == $0
 
-	#write out intervals that have been analysed by phenotype
-	
-	available_phenotypes = sample_store.available_phenotypes
-	#puts available_phenotypes.inspect
-
-
-	#available_phenotypes.each do |phenotype|
-	#	intervals = parser.parse_intervals("#{parser.intervals_directory}/#{parser.panel_version}_#{phenotype}_diagnostic_ROI.tsv")
-	#	this_sheet = this_book.create_worksheet :name => "#{phenotype} intervals"
-	#	row_number = 0
-	#	intervals.each do |this_interval|
-	#		this_sheet.row(row_number).push "#{this_interval.chromosome}","#{this_interval.genomic_start}","#{this_interval.genomic_end}","#{this_interval.strand}","#{this_interval.interval_name}"
- 	#		row_number = row_number + 1
-	#	end
-	#	
-	#end
-	
-	this_book.write "#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.#{Time.now.strftime("%d-%m-%Y-%H%M%S")}.xls"
-	
-  
+		parser = AlamutParser.new()
+		sample_store = parser.run_parser(parser)
+		
+	end
 end#end AlamutParser class

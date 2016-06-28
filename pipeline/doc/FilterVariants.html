@@ -1,0 +1,922 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: FilterVariants
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!FilterVariants.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (F)</a> &raquo;
+    
+    
+    <span class="title">FilterVariants</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: FilterVariants
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">FilterVariants</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">filter_variants.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>FilterVariants class: Various methods for filtering and adding annotation
+for filtering VCF files</p>
+</div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#annotate_filters-instance_method" title="#annotate_filters (instance method)">- (Array&lt;String, Object&gt;) <strong>annotate_filters</strong>(sample, batch, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array with command exit status and an IO.pipe object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#annotate_snp_filters-instance_method" title="#annotate_snp_filters (instance method)">- (Array&lt;String, Object&gt;) <strong>annotate_snp_filters</strong>(input_file_string, output_file_string, batch, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array with command exit status and an IO.pipe object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select_discordant_variants-instance_method" title="#select_discordant_variants (instance method)">- (Array&lt;String, Object&gt;) <strong>select_discordant_variants</strong>(sample, batch, logger, prefix_in, prefix_out, discordant_file_path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array with command exit status and an IO.pipe object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select_phenotype_variants-instance_method" title="#select_phenotype_variants (instance method)">- (Array&lt;String, Object&gt;) <strong>select_phenotype_variants</strong>(sample, batch, logger, prefix_in, prefix_out) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array with command exit status and an IO.pipe object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="annotate_filters-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>annotate_filters</strong>(sample, batch, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array with command exit status and an IO.pipe object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>sample</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Sample object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Batch object containing details on the batch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Ruby Logger object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'filter_variants.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_annotate_filters'>annotate_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Adding VariantFiltration annotation on sample...</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sequencing_panel_version'>sequencing_panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.filtered.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_this_panel'>this_panel</span> <span class='op'>=</span> <span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_select_panel'>select_panel</span><span class='lparen'>(</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='rparen'>)</span>
+		
+		<span class='comment'>#Build the command to be passed to the Wrapper object
+</span>		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T VariantFiltration -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --filterExpression &#39;QD &lt; 2.0&#39; --filterName &#39;QD2&#39; --filterExpression &#39;MQ &lt; 40.0&#39; --filterName &#39;MQ40&#39; </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--filterExpression &#39;ReadPosRankSum &lt; -8.0&#39; --filterName &#39;RPRS-8&#39; --filterExpression &#39;FS &gt; 60.0&#39; --filterName &#39;FS60&#39; --filterExpression &#39;MQRankSum &lt; -12.5&#39; --filterName &#39;MQRankSum-12.5&#39; </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> -log ../../logs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_filtered_hap_call.log</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Add an entry to the Logger object, stating that the filters are being annotated on the sample vcf
+</span>		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Annotate Filters :: Sample </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		
+		<span class='comment'>#Send the command to the Wrapper object, return the IO.pipe output
+</span>		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="annotate_snp_filters-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>annotate_snp_filters</strong>(input_file_string, output_file_string, batch, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array with command exit status and an IO.pipe object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>input_file_string</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Filepath to input file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>output_file_string</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Filepath to output file</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Batch object containing details on the batch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Ruby Logger object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'filter_variants.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_annotate_snp_filters'>annotate_snp_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='comma'>,</span> <span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Adding VariantFiltration annotation on sample...</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+					
+		<span class='comment'>#Build the command to be passed to the Wrapper object
+</span>		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T VariantFiltration -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> --filterExpression &#39;QD &lt; 2.0&#39; --filterName &#39;QD2&#39; --filterExpression &#39;MQ &lt; 40.0&#39; --filterName &#39;MQ40&#39; </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--filterExpression &#39;ReadPosRankSum &lt; -8.0&#39; --filterName &#39;RPRS-8&#39; --filterExpression &#39;FS &gt; 60.0&#39; --filterName &#39;FS60&#39; --filterExpression &#39;MQRankSum &lt; -12.5&#39; --filterName &#39;MQRankSum-12.5&#39; </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> -log ../../logs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_filtered_6q24_ug_call.log</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Add an entry to the Logger object, stating that the filters are being annotated on the sample vcf
+</span>		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Annotate UG Batch Filters :: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_batch_id'>batch_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		
+		<span class='comment'>#Send the command to the Wrapper object, return the IO.pipe output
+</span>		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="select_discordant_variants-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>select_discordant_variants</strong>(sample, batch, logger, prefix_in, prefix_out, discordant_file_path) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array with command exit status and an IO.pipe object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Batch object containing details on the batch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Ruby Logger object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prefix_in</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Prefix of input filename, reflects variants that are being selected against
+(ca / nkmi) at previous step</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prefix_out</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Prefix of output file, reflects the variants that are being selected
+against (ca / nkmi) at this step</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>discordant_file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Filepath of VCF file that contains the variants to be removed from sample
+VCF file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'filter_variants.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_select_discordant_variants'>select_discordant_variants</span><span class='lparen'>(</span><span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix_in'>prefix_in</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='comma'>,</span> <span class='id identifier rubyid_discordant_file_path'>discordant_file_path</span><span class='rparen'>)</span>
+			
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running SelectVariants for </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> on sample...</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sequencing_panel_version'>sequencing_panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_in'>prefix_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Build the command to be passed to the Wrapper object	
+</span>		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T SelectVariants -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> --discordance </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_discordant_file_path'>discordant_file_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -U LENIENT_VCF_PROCESSING</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Add an entry to the Logger object
+</span>		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Select Variants </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='embexpr_end'>}</span><span class='tstring_content'> :: Sample </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		
+		<span class='comment'>#Send the command to the Wrapper object, return the IO.pipe output
+</span>		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+	
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="select_phenotype_variants-instance_method">
+  
+    - (<tt>Array&lt;String, Object&gt;</tt>) <strong>select_phenotype_variants</strong>(sample, batch, logger, prefix_in, prefix_out) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array with command exit status and an IO.pipe object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Batch object containing details on the batch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Ruby Logger object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prefix_in</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Prefix of input filename</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prefix_out</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Prefix of output file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'filter_variants.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_select_phenotype_variants'>select_phenotype_variants</span><span class='lparen'>(</span><span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='id identifier rubyid_batch'>batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix_in'>prefix_in</span><span class='comma'>,</span> <span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='rparen'>)</span>
+			
+		<span class='id identifier rubyid_this_wrapper'>this_wrapper</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running SelectVariants for phenotype specific regions of interest </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='embexpr_end'>}</span><span class='tstring_content'> on sample...</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sequencing_panel_version'>sequencing_panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_in'>prefix_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../../variants/haplotyper/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix_out'>prefix_out</span><span class='embexpr_end'>}</span><span class='tstring_content'>.hap_call.vcf</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='id identifier rubyid_this_panel'>this_panel</span> <span class='op'>=</span> <span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_select_panel'>select_panel</span><span class='lparen'>(</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_phenotype_intervals_path'>phenotype_intervals_path</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_panel'>this_panel</span><span class='period'>.</span><span class='id identifier rubyid_intervals_directory'>intervals_directory</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='embexpr_end'>}</span><span class='tstring_content'>_variant_calling.bed</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Build the command to be passed to the Wrapper object	
+</span>		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_java_path'>java_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -Xmx4g -jar </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_gatk_path'>gatk_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -T SelectVariants -R </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_batch'>batch</span><span class='period'>.</span><span class='id identifier rubyid_reference_path'>reference_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-o </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_output_file_string'>output_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> --variant </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_input_file_string'>input_file_string</span><span class='embexpr_end'>}</span><span class='tstring_content'> -L </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_phenotype_intervals_path'>phenotype_intervals_path</span><span class='embexpr_end'>}</span><span class='tstring_content'> -log ../../logs/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='embexpr_end'>}</span><span class='tstring_content'>.log</span><span class='tstring_end'>&quot;</span></span>
+		
+		<span class='comment'>#Add an entry to the Logger object
+</span>		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Select Variants </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_phenotype'>phenotype</span><span class='embexpr_end'>}</span><span class='tstring_content'> :: Sample </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		
+		<span class='comment'>#Send the command to the Wrapper object, return the IO.pipe output
+</span>		<span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_this_wrapper'>this_wrapper</span><span class='period'>.</span><span class='id identifier rubyid_run_command'>run_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	  
+		<span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
+	
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jan 26 14:40:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

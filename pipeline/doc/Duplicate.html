@@ -1,0 +1,1160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Duplicate
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Duplicate.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (D)</a> &raquo;
+    
+    
+    <span class="title">Duplicate</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Duplicate
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Duplicate</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">duplicate.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>Duplicate class: Duplicate class to store and manipulate information from
+Picard MarkDuplicates output</p>
+</div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#estimated_library_size-instance_method" title="#estimated_library_size (instance method)">- (String) <strong>estimated_library_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The estimated number of unique molecules in the library based on PE
+duplication.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#library-instance_method" title="#library (instance method)">- (String) <strong>library</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Name of library that MarkDuplicates was run against usually either the
+panel or phenotype intervals.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#percent_duplication-instance_method" title="#percent_duplication (instance method)">- (String) <strong>percent_duplication</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The percentage of mapped sequence that is marked as duplicate.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_pair_duplicates-instance_method" title="#read_pair_duplicates (instance method)">- (String) <strong>read_pair_duplicates</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of read pairs that were marked as duplicates.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_pair_optical_duplicates-instance_method" title="#read_pair_optical_duplicates (instance method)">- (String) <strong>read_pair_optical_duplicates</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of read pairs duplicates that were caused by optical
+duplication.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_pairs_examined-instance_method" title="#read_pairs_examined (instance method)">- (String) <strong>read_pairs_examined</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of mapped read pairs examined.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unmapped_reads-instance_method" title="#unmapped_reads (instance method)">- (String) <strong>unmapped_reads</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The total number of unmapped reads examined.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unpaired_read_duplicates-instance_method" title="#unpaired_read_duplicates (instance method)">- (String) <strong>unpaired_read_duplicates</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of fragments that were marked as duplicates.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unpaired_reads_examined-instance_method" title="#unpaired_reads_examined (instance method)">- (String) <strong>unpaired_reads_examined</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The number of mapped reads examined which did not have a mapped mate pair,
+either because the read is unpaired, or the read is paired to an unmapped
+mate.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#print_attributes-instance_method" title="#print_attributes (instance method)">- (Array&lt;String&gt;) <strong>print_attributes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of attribute values.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#variable_order-instance_method" title="#variable_order (instance method)">- (Array&lt;Symbol&gt;) <strong>variable_order</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An array of attribute symbols.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="estimated_library_size=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="estimated_library_size-instance_method">
+  
+    - (<tt>String</tt>) <strong>estimated_library_size</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The estimated number of unique molecules in the library based on PE
+duplication.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of estimated_library_size</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_estimated_library_size'>estimated_library_size</span>
+  <span class='ivar'>@estimated_library_size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="library=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="library-instance_method">
+  
+    - (<tt>String</tt>) <strong>library</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Name of library that MarkDuplicates was run against usually either the
+panel or phenotype intervals</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of library</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_library'>library</span>
+  <span class='ivar'>@library</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="percent_duplication=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="percent_duplication-instance_method">
+  
+    - (<tt>String</tt>) <strong>percent_duplication</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The percentage of mapped sequence that is marked as duplicate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of percent_duplication</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_percent_duplication'>percent_duplication</span>
+  <span class='ivar'>@percent_duplication</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_pair_duplicates=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="read_pair_duplicates-instance_method">
+  
+    - (<tt>String</tt>) <strong>read_pair_duplicates</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of read pairs that were marked as duplicates.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of read_pair_duplicates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_pair_duplicates'>read_pair_duplicates</span>
+  <span class='ivar'>@read_pair_duplicates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_pair_optical_duplicates=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="read_pair_optical_duplicates-instance_method">
+  
+    - (<tt>String</tt>) <strong>read_pair_optical_duplicates</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of read pairs duplicates that were caused by optical
+duplication. Value is always &lt; READ_PAIR_DUPLICATES, which counts all
+duplicates regardless of source.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of read_pair_optical_duplicates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_pair_optical_duplicates'>read_pair_optical_duplicates</span>
+  <span class='ivar'>@read_pair_optical_duplicates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="read_pairs_examined=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="read_pairs_examined-instance_method">
+  
+    - (<tt>String</tt>) <strong>read_pairs_examined</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of mapped read pairs examined.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of read_pairs_examined</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_pairs_examined'>read_pairs_examined</span>
+  <span class='ivar'>@read_pairs_examined</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="unmapped_reads=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="unmapped_reads-instance_method">
+  
+    - (<tt>String</tt>) <strong>unmapped_reads</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The total number of unmapped reads examined.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of unmapped_reads</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unmapped_reads'>unmapped_reads</span>
+  <span class='ivar'>@unmapped_reads</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="unpaired_read_duplicates=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="unpaired_read_duplicates-instance_method">
+  
+    - (<tt>String</tt>) <strong>unpaired_read_duplicates</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of fragments that were marked as duplicates.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of unpaired_read_duplicates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unpaired_read_duplicates'>unpaired_read_duplicates</span>
+  <span class='ivar'>@unpaired_read_duplicates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="unpaired_reads_examined=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="unpaired_reads_examined-instance_method">
+  
+    - (<tt>String</tt>) <strong>unpaired_reads_examined</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The number of mapped reads examined which did not have a mapped mate pair,
+either because the read is unpaired, or the read is paired to an unmapped
+mate.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of unpaired_reads_examined</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unpaired_reads_examined'>unpaired_reads_examined</span>
+  <span class='ivar'>@unpaired_reads_examined</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="print_attributes-instance_method">
+  
+    - (<tt>Array&lt;String&gt;</tt>) <strong>print_attributes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array of attribute values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of attribute values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_print_attributes'>print_attributes</span>
+		<span class='id identifier rubyid_attr_array'>attr_array</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+		<span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_variables'>instance_variables</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+			<span class='id identifier rubyid_attr_array'>attr_array</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='rparen'>)</span><span class='rparen'>)</span>
+ 		<span class='kw'>end</span>
+ 			<span class='kw'>return</span> <span class='id identifier rubyid_attr_array'>attr_array</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="variable_order-instance_method">
+  
+    - (<tt>Array&lt;Symbol&gt;</tt>) <strong>variable_order</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns An array of attribute symbols</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of attribute symbols</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'duplicate.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_variable_order'>variable_order</span>
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:library</span><span class='comma'>,</span> <span class='symbol'>:unpaired_reads_examined</span><span class='comma'>,</span> <span class='symbol'>:read_pairs_examined</span><span class='comma'>,</span> <span class='symbol'>:unmapped_reads</span><span class='comma'>,</span> <span class='symbol'>:unpaired_read_duplicates</span><span class='comma'>,</span> <span class='symbol'>:read_pair_duplicates</span><span class='rbracket'>]</span>          
+		<span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>=</span> <span class='id identifier rubyid_variable_order'>variable_order</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='symbol'>:read_pair_optical_duplicates</span><span class='comma'>,</span> <span class='symbol'>:percent_duplication</span><span class='comma'>,</span> <span class='symbol'>:estimated_library_size</span><span class='rbracket'>]</span>                                                                                                                                                                                   
+		<span class='kw'>return</span> <span class='id identifier rubyid_variable_order'>variable_order</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jan 26 14:40:09 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

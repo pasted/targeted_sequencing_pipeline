@@ -1,3 +1,5 @@
+# @author Garan Jones
+# @note Pipeline class: main Pipeline class to run the samples through the stages
 class Pipeline
 		require 'yaml'
 		require 'logger'
@@ -21,169 +23,267 @@ class Pipeline
 		require_relative 'filter_variants'
 		require_relative 'alamut_annotation'
 		require_relative 'variants_to_table'
+		require_relative 'cnv_caller'
+		require_relative 'file_compressor'
 		
-		def error_check(out, sample, stage, logger)
+	# @author Garan Jones
+	# Check the IO.pipe STDOUT returned from Parallel from a non-zero value (error)
+	# If non-zero send break signal to Parallel, add error log to logger
+  	#
+  	# @param out [Array<String, Object>] An array with command exit status and an IO.pipe object
+  	# @param sample [Object] A Sample object
+  	# @param stage [String] Text description of which stage of the pipeline is being run
+  	# @param logger [Object] A Ruby Logger object
+  	# @return [Boolean] If IO.pipe STDOUT has passed the error check (TRUE, Parallel::Break not called) or not (FALSE, Parallel::Break called)
+	 def error_check(out, sample, stage, logger)
 			if out && (out[0] > 0)
 				puts "ERROR :: #{stage} :: Halting pipeline at Sample #{sample.panel_version}_#{sample.sample_id}\n"
 				ap "#{out[1].inspect}"
+				#Write error message out to logger
 				logger.info('error') { "SAMPLE :: #{sample.sample_id} #{out[1].inspect}" }
-				
+				#Raise Parallel::Break, stop all current processes run by Parallel
 				raise Parallel::Break
 				return false
 			else
 				return true
 			end
-		end
-			
-	 def generate_input_file_string(samples, allowed_genesets)
+	 end
+
+	# @author Garan Jones
+	# Use an array of Sample objects to generate a concatenated list of BAM filepaths
+	# based on the allowed genesets
+  	#
+  	# @param samples [Array<Object>] An array containing the sample objects
+  	# @param allowed_genesets [Array<String>] A list of allowed genesets
+  	# @return [String] A string containing a concatenated list of BAM filepaths
+	 def generate_input_file_string(batch, samples, allowed_genesets)
 			#allowed_genesets = ["v5","v501"]
 			input_file_string = ""
 			samples.each do |this_sample|
 				if allowed_genesets.include?(this_sample.panel_version)
-					input_file_string += "-I ../../assembly/#{this_sample.panel_version}_#{this_sample.sample_id}_#{this_sample.gender.upcase}.realigned.bam "
+					input_file_string += "-I #{batch.base_path}/#{batch.batch_id}/assembly/#{this_sample.panel_version}_#{this_sample.sample_id}_#{this_sample.gender.upcase}.realigned.bam "
 				end
 			end
 			return input_file_string
 	 end
 	 
+	# @author Garan Jones
+	# Annotate variants using AlamutAnnotation class
+  	#
+  	# @param samples [Array<Object>] An array containing the sample objects
+  	# @param this_batch [Object] A Batch object containing details on the batch
+  	# @param logger [Object] A Logger object
+  	# @param this_pipeline [Object] An instance of the Pipeline class
+  	# @return [true]
 	 def annotate_variants(samples, this_batch, logger, this_pipeline)
 			results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
 				# Alamut Annotation
 				this_annotation = AlamutAnnotation.new
 				out = this_annotation.annotate(this_sample, this_batch, logger)
 				puts "#{out.inspect}"
-				this_pipeline.error_check(out, this_sample, "Alamut annotation", logger)
+				error_check(out, this_sample, "Alamut annotation", logger)
 			end
 			return true
-	end
+	 end
 
-	
-	
-		logger = Logger.new('../../logs/pipeline.log')
-		
-		#Load the config YAML file and pass the settings to local variables
-		this_batch = YAML.load_file('../configuration/config.yaml')
-		
-		this_parser = SampleParser.new
-		this_pipeline = Pipeline.new
-		
-		samples = this_parser.parse_sample_list(this_batch.sample_list_path)
-		
-		samples_first = []
-		
-		samples.each do |this_sample|
-			if [ "v5_0510", "v5_0511", "v5_0552", "v5_0557", "v5_0558", "v5_0562", "v5_0564", "v5_0569", "v5_0572", "v5_0574", "v5_0580", "v5_0581", "v5_0583", "v5_0584", "v5_0599", "v5_0605", "v5_0609", "v5_0623", "v5_0624", "v5_0632", "v5_0753", "v5_0760", "v5_0762", "v5_0786", "v5_0788", "v5_0791", "v5_0797", "v5_0799", "v5_0800", "v5_0801", "v5_0802", "v5_0822", "v5_0827", "v5_0828", "v5_0829", "v5_0832", "v5_0834", "v5_0839", "v5_0846", "v5_0854", "v5_0863", "v5_0883", "v5_0884", "v5_0888", "v5_0894", "v5_0896", "v5_0897", "v5_0929", "v5_0946", "v5_0979", "v501_0952", "v501_0971", "v501_1004", "v501_1006", "v501_1008", "v501_1012", "v501_1014", "v501_1015", "v501_1016", "v501_1018" ].include? this_sample.capture_number
-				#samples_first.push this_sample	
-			else
-				samples_first.push this_sample
-			end
-		end
-		
-		#Seperate loop for the WGET cmd due to a throttling issue
-		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
-			this_wget = Wget.new
-			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
-		
-			this_rename = Rename.new
-			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
-		end
-
-		`gzip_all ../../raw_reads/*.fastq`
-		
-		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
-			puts this_sample.inspect
-			this_bwa_mem = BwaMem.new
-			out = this_bwa_mem.run_bwa_mem(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "BWA-MEM alignment", logger)
-			
-			this_sam_to_bam = SamToBam.new
-			out = this_sam_to_bam.convert_sam_to_bam(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "SAM to BAM", logger)
-			
-			this_fix_mate_pair = FixMatePair.new
-			out = this_fix_mate_pair.fix_information(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Fix MatePair info", logger)
-			
-			this_sort_bam = SortBam.new
-			out = this_sort_bam.sort(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Sort BAM", logger)
-			
-			this_mark_dups = MarkDuplicates.new
-			out = this_mark_dups.remove_dups(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Remove Duplicates", logger)
-			
-			this_realign_indels = RealignIndels.new
-			out = this_realign_indels.create_targets(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Create targets", logger)
-			
-			out = this_realign_indels.realign(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Indel Realignment", logger)
-
-			## Metrics overall
-     
-			this_metric = CalculateMetrics.new
-			out = this_metric.overall_metrics(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Overall metrics", logger)
-			
-			out = this_metric.phenotype_metrics(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Phenotype metrics", logger)
-			
-			out = this_metric.phenotype_coverage(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Phenotype coverage", logger)
-		
-			### Phenotype specifc section
-			### Haplotype Caller
+	 def run_assembly(this_sample, this_batch, logger)
+	 	 	## Align forward and reverse Fastq files to produce BAM file
+ 			this_bwa_mem = BwaMem.new
+ 			out = this_bwa_mem.run_bwa_mem(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "BWA-MEM alignment", logger)
+ 			
+ 			this_sam_to_bam = SamToBam.new
+ 			out = this_sam_to_bam.convert_sam_to_bam(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "SAM to BAM", logger)
+ 			
+ 			this_fix_mate_pair = FixMatePair.new
+ 			out = this_fix_mate_pair.fix_information(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Fix MatePair info", logger)
+ 			
+ 			this_sort_bam = SortBam.new
+ 			out = this_sort_bam.sort(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Sort BAM", logger)
+ 			
+ 			this_mark_dups = MarkDuplicates.new
+ 			out = this_mark_dups.remove_dups(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Remove Duplicates", logger)
+ 			
+ 			this_realign_indels = RealignIndels.new
+ 			out = this_realign_indels.create_targets(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Create targets", logger)
+ 			
+ 			out = this_realign_indels.realign(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Indel Realignment", logger)
+ 			
+	 end
+	 
+	 def run_metrics(this_sample, this_batch, logger)
+	 	 	## Metrics overall
       
-			this_caller = VariantCaller.new
-			out = this_caller.haplotype_caller(this_sample, this_batch, logger, false)
-			
-			this_pipeline.error_check(out, this_sample, "Variant Calling", logger)
-
-			### Variant filtration
+ 			this_metric = CalculateMetrics.new
+ 			out = this_metric.overall_metrics(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Overall metrics", logger)
+ 			
+ 			out = this_metric.phenotype_metrics(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Phenotype metrics", logger)
+ 			
+ 			out = this_metric.phenotype_coverage(this_sample, this_batch, logger)
+ 			error_check(out, this_sample, "Phenotype coverage", logger)
+ 			
+	 end
+	 
+	 def run_variant_caller(this_sample, this_batch, logger)		
+ 			## Phenotype specifc section
+ 			## Haplotype Caller
+       
+ 			this_caller = VariantCaller.new
+ 			#bam_out: outputs the HaplotypeCaller representation of the BAM file, should include the ArtificialHaplotypes 
+ 			#set to false to reduce run-time
+ 			bam_out = false
+ 			out = this_caller.haplotype_caller(this_sample, this_batch, logger, bam_out)
+ 			
+ 			error_check(out, this_sample, "Variant Calling", logger)
+	 end
+	 
+	 def run_select_variants(this_sample, this_batch, logger) 
+			## Variant filtration
        
 			this_selection = FilterVariants.new
 			out = this_selection.annotate_filters(this_sample, this_batch, logger)
-			this_pipeline.error_check(out, this_sample, "Annotate filters", logger)
+			error_check(out, this_sample, "Annotate filters", logger)
 		
 			## Select Variants - discordance with No Known Clinical Significance 
 		
 			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "filtered", "nkmi", this_batch.common_variants_nkmi_path)
-			this_pipeline.error_check(out, this_sample, "NKMI variant discordance", logger)
+			error_check(out, this_sample, "NKMI variant discordance", logger)
 		
 			## Select Variants - discordance with Common Artefacts
        
 			out = this_selection.select_discordant_variants(this_sample, this_batch, logger, "nkmi", "ca", "#{this_batch.common_artefacts_path}")
-			this_pipeline.error_check(out, this_sample, "CA variant discordance", logger)
+			error_check(out, this_sample, "CA variant discordance", logger)
 		
 			## Select Variants - phenotype specific intervals
 		
 			out = this_selection.select_phenotype_variants(this_sample, this_batch, logger, "ca", "phenotype")
-			this_pipeline.error_check(out, this_sample, "Phenotype specific variant selection", logger)
-					
-		end
-		
+ 			error_check(out, this_sample, "Phenotype specific variant selection", logger)
+	 end
+	 
+	 def run_exome_depth(samples, this_batch, logger)
+ 	  	["FEMALE", "MALE"].each do |this_gender|
+ 	  			panels = Array.new
+ 	  		  samples.each do |this_sample|
+ 	  		  	panels.push(this_sample.sequencing_panel_version)
+ 	  			end
+ 	  			panels.uniq!
 
-		#annotate variants
-		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
-		#Parse batch metrics in order
-		this_metric = ParseMetrics.new
-		this_metric.parse_batch_metrics(this_batch, samples)
+	 		  	["v501", "v602"].each do |this_panel_version|
+						run_type = "interbatch"
+	 		  		this_cnv_caller = CnvCaller.new
+	 		  		out = this_cnv_caller.exome_depth(this_panel_version, this_gender, run_type, this_batch, logger)
+	 		  		puts out
+	 		    end
+ 	  	end
+ 	 end
+	
+	 def run_pipeline(this_pipeline)
+	 	 	path = File.expand_path(__FILE__)
+			base_path = path.split("/scripts/").first
+  		
+			logger = Logger.new("#{base_path}/logs/pipeline.log")
+			
+			#Load the config YAML file and pass the settings to local variables
+			this_batch = YAML.load_file("#{base_path}/scripts/configuration/config.yaml")
+			
+			this_parser = SampleParser.new
+			
+			samples = this_parser.parse_sample_list("#{base_path}/#{this_batch.sample_list_path}")
+			
+			samples_first = []
+			
+ 			samples.each do |this_sample|
+ 				if [ "v501_0971", "v501_1004", "v501_1006" ].include? this_sample.capture_number
+ 					samples_first.push this_sample	
+ 				else
+ 					#samples_first.push this_sample
+ 				end
+ 			end
+ 	
+ 	  #Seperate loop for the WGET cmd due to a throttling issue
+# 		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
+# 			this_wget = Wget.new
+# 			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
+# 		
+# 			this_rename = Rename.new
+# 			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
+#
+# 			out = this_rename.rename_symlink(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "Symlink rename", logger)
+#			end
+
+
+#Only required if the Fastq files are not gzipped
+# 		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
+#				this_compressor = FileCompressor.new
+#				out = this_compressor.gzip_fastq("R1", this_sample, this_batch, logger)
+#				if out
+#					this_pipeline.error_check(out, this_sample, "Gzip FastQ", logger)
+#				else
+#					puts "SYMLINK :: #{this_sample.inspect}"
+#				end
+#
+#				out = this_compressor.gzip_fastq("R2", this_sample, this_batch, logger)
+#				if out 
+#					this_pipeline.error_check(out, this_sample, "Gzip FastQ", logger)
+#			  else
+#					puts "SYMLINK :: #{this_sample.inspect}"
+#				end
+# 		end  
+ 	
+#		Main pipeline loop, set to the number of concurrent processes to reflect server load
+ 		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
+ 			puts this_sample.inspect
+ 			
+ 			run_assembly(this_sample, this_batch, logger)
+ 			
+ 			run_metrics(this_sample, this_batch, logger)
+ 			
+ 			run_variant_caller(this_sample, this_batch, logger)
+ 			
+ 			run_select_variants(this_sample, this_batch, logger)
+					
+ 		end
+ 	
+ 
+	 	#Run ExomeDepth over gender specific batches
+	 	run_exome_depth(samples, this_batch, logger)
+ 	  
+	 	#annotate variants
+ 		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
+ 		#Parse batch metrics in order
+ 		this_metric = ParseMetrics.new
+ 		this_metric.parse_batch_metrics(this_batch, samples)
 
 		#SNP typing
 
-		input_file_string = this_pipeline.generate_input_file_string(samples, ["v5","v501"])
-		if input_file_string != ""
-		#	6q24 SNPs
-		#	Only parse samples with the 6q24 region targeted
-			this_variant_caller = VariantCaller.new
-			this_variant_caller.call_6q24_snps(this_batch, logger, input_file_string)
-		#	type_one_snps
-			this_variant_caller.call_type_one_snps(this_batch, logger, input_file_string)
-		else
-			puts "No v5 or v501 samples to run through snp typing"
-			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
-		end
-		
+ 		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])
+ 		if input_file_string != ""
+ 			this_caller = VariantCaller.new
+ 		#	6q24 SNPs
+ 		#	Only parse samples with the 6q24 region targeted   
+ 			this_caller.call_6q24_snps(this_batch, logger, input_file_string)
+ 		#	type_one_snps
+ 			this_caller.call_type_one_snps(this_batch, logger, input_file_string)
+ 		else
+ 			puts "No v5 or v501 samples to run through snp typing"
+ 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
+ 		end
+	end#run_pipeline method
+	
+	
+	if __FILE__ == $0
+		this_pipeline = Pipeline.new
+		this_pipeline.run_pipeline(this_pipeline)
+	end
 end

@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Pipeline
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Pipeline.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">Pipeline</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Pipeline
+  <span class="abstract note title">Abstract</span>
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Pipeline</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">pipeline.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'>
+<p>Pipeline class: main Pipeline class to run the samples through the stages</p>
+</div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#annotate_variants-instance_method" title="#annotate_variants (instance method)">- (true) <strong>annotate_variants</strong>(samples, this_batch, logger, this_pipeline) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Annotate variants using AlamutAnnotation class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error_check-instance_method" title="#error_check (instance method)">- (Boolean) <strong>error_check</strong>(out, sample, stage, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>If IO.pipe STDOUT has passed the error check (TRUE, Parallel::Break not
+called) or not (FALSE, Parallel::Break called).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_input_file_string-instance_method" title="#generate_input_file_string (instance method)">- (String) <strong>generate_input_file_string</strong>(samples, allowed_genesets) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Use an array of Sample objects to generate a concatenated list of BAM
+filepaths based on the allowed genesets.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="annotate_variants-instance_method">
+  
+    - (<tt>true</tt>) <strong>annotate_variants</strong>(samples, this_batch, logger, this_pipeline) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Annotate variants using AlamutAnnotation class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>samples</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array containing the sample objects</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>this_batch</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Batch object containing details on the batch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Logger object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>this_pipeline</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An instance of the Pipeline class</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'pipeline.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_annotate_variants'>annotate_variants</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_this_batch'>this_batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_this_pipeline'>this_pipeline</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='const'>Parallel</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='symbol'>:in_processes</span><span class='op'>=&gt;</span><span class='int'>1</span> <span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='op'>|</span>
+			<span class='comment'># Alamut Annotation
+</span>			<span class='id identifier rubyid_this_annotation'>this_annotation</span> <span class='op'>=</span> <span class='const'>AlamutAnnotation</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+			<span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_this_annotation'>this_annotation</span><span class='period'>.</span><span class='id identifier rubyid_annotate'>annotate</span><span class='lparen'>(</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='comma'>,</span> <span class='id identifier rubyid_this_batch'>this_batch</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+			<span class='id identifier rubyid_this_pipeline'>this_pipeline</span><span class='period'>.</span><span class='id identifier rubyid_error_check'>error_check</span><span class='lparen'>(</span><span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_this_sample'>this_sample</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Alamut annotation</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+		<span class='kw'>end</span>
+		<span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="error_check-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>error_check</strong>(out, sample, stage, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns If IO.pipe STDOUT has passed the error check (TRUE, Parallel::Break
+not called) or not (FALSE, Parallel::Break called)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>out</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String, Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array with command exit status and an IO.pipe object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sample</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Sample object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stage</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Text description of which stage of the pipeline is being run</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A Ruby Logger object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If IO.pipe STDOUT has passed the error check (TRUE, Parallel::Break not
+called) or not (FALSE, Parallel::Break called)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'pipeline.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_error_check'>error_check</span><span class='lparen'>(</span><span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='id identifier rubyid_stage'>stage</span><span class='comma'>,</span> <span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_out'>out</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='int'>0</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ERROR :: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stage'>stage</span><span class='embexpr_end'>}</span><span class='tstring_content'> :: Halting pipeline at Sample </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid_ap'>ap</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+		<span class='comment'>#Write error message out to logger
+</span>		<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SAMPLE :: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+		<span class='comment'>#Raise Parallel::Break, stop all current processes run by Parallel
+</span>		<span class='id identifier rubyid_raise'>raise</span> <span class='const'>Parallel</span><span class='op'>::</span><span class='const'>Break</span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>else</span>
+		<span class='kw'>return</span> <span class='kw'>true</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="generate_input_file_string-instance_method">
+  
+    - (<tt>String</tt>) <strong>generate_input_file_string</strong>(samples, allowed_genesets) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Use an array of Sample objects to generate a concatenated list of BAM
+filepaths based on the allowed genesets</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>samples</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Object&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array containing the sample objects</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>allowed_genesets</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A list of allowed genesets</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A string containing a concatenated list of BAM filepaths</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Garan Jones</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'pipeline.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_generate_input_file_string'>generate_input_file_string</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_genesets'>allowed_genesets</span><span class='rparen'>)</span>
+	<span class='comment'>#allowed_genesets = [&quot;v5&quot;,&quot;v501&quot;]
+</span>	<span class='id identifier rubyid_input_file_string'>input_file_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+	<span class='id identifier rubyid_samples'>samples</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='op'>|</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_allowed_genesets'>allowed_genesets</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_input_file_string'>input_file_string</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-I ../../assembly/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='period'>.</span><span class='id identifier rubyid_panel_version'>panel_version</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='period'>.</span><span class='id identifier rubyid_sample_id'>sample_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_sample'>this_sample</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='tstring_content'>.realigned.bam </span><span class='tstring_end'>&quot;</span></span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_input_file_string'>input_file_string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jan 26 14:40:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

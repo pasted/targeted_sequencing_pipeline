@@ -1,64 +1,58 @@
+# @author Garan Jones
+# @abstract SampleStore class: Object to help store and process Sample objects
 class SampleStore
 		require_relative 'variant_store'
 		require_relative 'transcript_store'
+		require_relative 'cnv_store'
 		
-		attr_accessor :samples_by_phenotype, :samples
+		attr_accessor :samples_by_phenotype, :samples, :cnv_store
 		
-		def initialize(samples)
-			self.samples = samples
+	def initialize(samples)
+		self.samples = samples
+		self.cnv_store = CnvStore.new
   	end
   	
-  	def capture_numbers
-  		capture_number_array = self.samples.collect { |this_sample| this_sample.capture_number }
-  		return capture_number_array
-  	end
-  	
+  		# @author Garan Jones
+		  # Load in the list of transcript from a YAML file and construct a new TranscriptStore containing nested arrays of Phenotype and Gene objects
+  		# @param parser [Object] A Parser instance
+  		# @param transcript_file_path [String] The filepath to the yaml file containing the transcripts 
+  		# @return [Object] TranscriptStore instance
   	def parse_transcripts(parser, transcript_file_path)
   		
-  		  phenotype_list = parser.load_phenotypes(transcript_file_path)
-			  phenotype_array = Array.new
+  		phenotype_list = parser.load_phenotypes(transcript_file_path)
+  		phenotype_array = Array.new
 			 
-			  phenotype_list.each_pair do |phenotype, genes|
-			  	gene_list = Array.new
-			  	genes.each_pair do |gene_symbol, transcript|
-			  		this_gene = Gene.new(gene_symbol, transcript)
-			  		gene_list.push(this_gene)
-			  	end
-			  	this_phenotype = Phenotype.new(phenotype, gene_list)
-			  	phenotype_array.push(this_phenotype) 	
-			  end
-			  
-			  transcript_store = TranscriptStore.new(phenotype_array)
-			  return transcript_store
+  		phenotype_list.each_pair do |phenotype, genes|
+			gene_list = Array.new
+			genes.each_pair do |gene_symbol, transcript|
+				this_gene = Gene.new(gene_symbol, transcript)
+				gene_list.push(this_gene)
+			end
+			this_phenotype = Phenotype.new(phenotype, gene_list)
+			phenotype_array.push(this_phenotype) 	
+		end
+		
+		transcript_store = TranscriptStore.new(phenotype_array)
+		return transcript_store
   	end
   	
-  	def select_panel(this_batch, this_sample)
+  		# @author Garan Jones
+  		# Select the correct panel from available panels
+  		# @param batch [Object] A Batch object containing details on the batch
+  		# @param sample [Object] A Sample instance
+  		# @return [Object] A Panel instance
+  	def select_panel(batch, sample)
 
-  			selected_panel = nil
-  		  this_batch.panels.each do |this_panel|
-  		  	if this_panel.panel_id == this_sample.panel_version
+  		selected_panel = nil
+  		batch.panels.each do |this_panel|
+  		  	if this_panel.panel_id == sample.panel_version
   					selected_panel = this_panel
-  				end
   			end
-  			return selected_panel
+  		end
+  		return selected_panel
     end
-    
-    def calculate_snp_score(snp_gt_table_file, snp_lookup_table, wanted_panels, parser, this_batch, this_book)
-    	#specific for T1D
-    	#load GT table using snp_gt_table_file
-    	#headers for GT file CHROM	POS	ID	REF	ALT	QUAL	FILTER	AC	AF	v501_1021.GT	v501_1022.GT	v501_1023.GT	v501_1024.GT	v501_1025.GT	v501_1026.GT
-    	
-    	#load lookup table 
-    	
-    	#loop through samples
-    	#select samples with the wanted panel - for 6q24 and t1d this will be the v5 / v501 panels
-    	
-    	#For each wanted sample there should be a corresponding entry in the GT table
-    	#
-    
-  	end
-    
-  	def process_samples(parser, this_batch, this_book)
+
+  	def process_samples(parser, this_batch, this_book, title_font)
 
   		#Special gene symbols
   		#catch any unnanotated gene symbols - can be expanded to include genes without transcripts
@@ -69,7 +63,7 @@ class SampleStore
   		all_transcripts = Hash.new
   		
   		self.samples.each do |this_sample|
-  		  
+  		    
   			#select the relevant panel for each sample based on the panel version
   			this_panel = select_panel(this_batch, this_sample)
 
@@ -79,51 +73,54 @@ class SampleStore
   			
   			if !all_transcripts.keys.include?(this_panel.panel_version)
   				all_transcripts[this_panel.panel_version] = transcript_store
-  		  end
+  			end
 
   			#Collapse the transcript_store object to given a list of transcript IDs
   			transcripts = transcript_store.list_all_transcripts
   			
   			#Load blacklisted variants
-  			unwanted_variants = parser.parse_unwanted_variants(this_panel.unwanted_file_path)
+  			unwanted_variants = parser.parse_unwanted_variants("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_panel.unwanted_file_path}")
 
   			#Load wanted regions
-  			wanted_regions = parser.parse_wanted_regions(this_panel.wanted_file_path)
+  			wanted_regions = parser.parse_wanted_regions("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_panel.wanted_file_path}")
   			
-  			full_sample_id 	= this_sample.capture_number
-  			phenotype		   	= this_sample.phenotype
-  			gender					= this_sample.gender.upcase
-  			sample_id 			= full_sample_id.split('_')[1]
-  			#puts "#{full_sample_id}"
-  			#puts "PHENOTYPE :: #{phenotype}"
-  			#puts "SAMPLE ID :: #{sample_id}"
-  			
+  			phenotype		= this_sample.phenotype
+  			gender			= this_sample.gender.upcase
+
   			
   			if !phenotype_store.has_key?(phenotype)
   				sample_store_array = Array.new
   				phenotype_store["#{phenotype}"] = sample_store_array
   			end
   			
+  			#Parse CNV files
+  			if ( ["MALE","FEMALE"].include?(gender) ) && ( ["v501","v602"].include?(this_panel.panel_id) )
+  				cnv_array = parser.parse_cnvs("#{this_panel.panel_id}", "#{this_batch.base_path}/#{parser.batch_id}/cnv_analysis/#{this_sample.gender.downcase}/#{this_panel.panel_id}/results/Sample_#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}.realigned.bam.csv")
+  				self.cnv_store.cnvs.store("#{this_sample.ex_number}", cnv_array)
+  				self.cnv_store.process_cnvs(this_sample, this_batch, this_panel, parser)
+  				puts "@@@@ #{this_sample.inspect}"
+  				puts self.cnv_store.inspect
+  			else
+  				puts "#{this_sample.capture_number} CNV file will not be parsed: check that gender(#{gender}) and panel (#{this_panel.panel_id}) meet criteria for running ExomeDepth"
+  			end
+  			
+
   			#Load variants from alltrans alamut file
-  			puts "#{this_batch.base_path}/#{parser.batch_id}/#{this_panel.variants_directory}/#{this_panel.panel_id}_#{sample_id}_#{gender}_#{phenotype}.alamut.alltrans.txt"
-  			variants = parser.parse_file("#{this_batch.base_path}/#{parser.batch_id}/#{this_panel.variants_directory}/#{this_panel.panel_id}_#{sample_id}_#{gender}_#{phenotype}.alamut.alltrans.txt", "#{this_panel.panel_id}_#{sample_id}")
+  			variants = parser.parse_file("#{this_batch.base_path}/#{parser.batch_id}/#{this_panel.variants_directory}/#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}_#{phenotype}.alamut.alltrans.txt", "#{this_panel.panel_id.downcase}", "#{this_sample.ex_number.downcase}")
   			variant_store = VariantStore.new(variants)
 
-  			#puts "variants number :: #{variants.length}"
-  			
   			selected_variants = Array.new
   			not_selected_variants = Array.new
   			
-  			phenotype_store = variant_store.select_variants(sample_id, phenotype, phenotype_store, transcripts, unwanted_variants, wanted_regions, special_gene_symbols)
-  			#puts phenotype_store.inspect
+  			phenotype_store = variant_store.select_variants(this_sample.ex_number, phenotype, phenotype_store, transcripts, unwanted_variants, wanted_regions, special_gene_symbols)
+  			
   		end#samples loop
   		
   		all_transcripts.each_pair do |panel_version, transcript_store|
-  			#puts "transcripts to excel :: #{panel_version}"
-  			this_book = transcript_store.transcripts_to_excel(this_book, panel_version)
+  			this_book = transcript_store.transcripts_to_axlsx(this_book, panel_version)
   		end
   		self.samples_by_phenotype = phenotype_store
-  		return this_book
+  		return self
   	end
   	
     def available_phenotypes
@@ -132,54 +129,99 @@ class SampleStore
     	return available_phenotypes
     end
     
-    def samples_to_excel(workbook)
+    def samples_to_axlsx(workbook, title_font)
+    		spacer_font = workbook.styles.add_style :bg_color => "FF", :fg_color => "00", :sz => 12
+  			not_selected_font = workbook.styles.add_style :bg_color => "CCCCCC", :fg_color => "00", :sz => 12
     	
-    	  self.samples_by_phenotype.each_pair do |this_phenotype, this_sample_store|
+    	  	self.samples_by_phenotype.each_pair do |this_phenotype, this_sample_store|
   	
-    	  	this_sheet = workbook.create_worksheet :name => "#{this_phenotype}"
-    	  	row_number = 0
-  	
-    	  	puts "Number of samples with #{this_phenotype} phenotype :: #{this_sample_store.length}"
-  	
- 			this_sample_store.each do |samples|
- 				samples.each_pair do |this_sample_id, this_variant_array|
- 					header_array = Array.new
- 					this_sheet.row(row_number).push "SAMPLE ::", this_sample_id
- 					row_number = row_number + 1
- 					
- 					#puts "******"
- 					#puts this_variant_array[0].inspect
- 					#puts "Unwanted variants"
- 					#this_variant_array[1].each do |this_unwanted_variant|
- 					#	puts "Chromosome :: #{this_unwanted_variant.chromosome}"
- 					#	puts "Position :: #{this_unwanted_variant.position}"
- 					#	puts "Gene :: #{this_unwanted_variant.gene}"
- 					#	
- 					#	
- 					#end
- 					
- 					this_variant_array[0].each do |this_selected_variant|
- 						if header_array.empty?
- 							header_array = this_selected_variant.variable_order
- 							header_array.map!{ |element| element.to_s }
+    	  		#this_sheet = workbook.create_worksheet :name => "#{this_phenotype}"
+    	  		workbook.add_worksheet(:name => "#{this_phenotype}") do |this_sheet|
+    	  		#	row_number = 0
+    	  	    	
+    	  			puts "Number of samples with #{this_phenotype} phenotype :: #{this_sample_store.length}"
+  	            	
+ 						this_sample_store.each do |samples|
  							
- 							header_array.each do |this_header|
- 								  this_sheet.row(row_number).push this_header  
- 							end
- 						end
- 						row_number = row_number + 1
+ 							samples.each_pair do |this_ex_number, this_variant_array|
+ 								header_array = Array.new
+ 								cnv_header_array = Array.new
+ 								sample_array = self.samples.select {|s| s.ex_number == this_ex_number }
+ 								this_sample = sample_array.first
+ 								
+ 								this_sheet.add_row ["EX NUMBER:", "#{this_sample.ex_number}", "PANEL VERSION", "#{this_sample.panel_version}"], :style => title_font
+ 
+ 								this_sheet.add_row ["pct_target_bases_20x ::", "#{this_sample.pct_target_bases_20x}", "pct_target_bases_30x ::", "#{this_sample.pct_target_bases_30x}"], :style => title_font
+                
+ 								if this_variant_array.length > 0
+ 									this_variant_array[0].each do |this_selected_variant|
+ 										if header_array.empty?
+ 											header_array = this_selected_variant.variable_order
+ 											header_array.map!{ |element| element.to_s }
+ 											this_sheet.add_row header_array
+ 										end
+                	
+ 										#output variables to spreadsheet in given order
+ 										variant_array = Array.new
+ 										this_selected_variant.variable_order.map {|var|  variant_array.push( "#{this_selected_variant.send(var)}") }
+ 										this_sheet.add_row variant_array
+ 										
+ 									end#variants
+ 								else
+ 									this_sheet.add_row ["No variants passed selection criteria for this sample and profile."]
+ 								end
+ 								
+ 								this_sheet.add_row []
+ 								
+ 								if self.cnv_store.cnvs.has_key?("#{this_sample.ex_number}")
+ 									this_cnv_array = self.cnv_store.cnvs.fetch("#{this_sample.ex_number}")
+ 									puts this_cnv_array.inspect
+ 									if this_cnv_array.length > 0
+ 										this_cnv_array.each do |this_selected_cnv|
+ 											if cnv_header_array.empty?
+ 												cnv_header_array = this_selected_cnv.variable_order
+ 												cnv_header_array.map!{ |element| element.to_s }
+ 												tmp_array = Array.new
+ 												tmp_array.push("")
+ 												tmp_array.concat(cnv_header_array)
+ 												this_sheet.add_row tmp_array
+ 												this_sheet.rows.last.cells[0].style = spacer_font
+
+ 											end
+ 											
+ 											#output variables to spreadsheet in given order
+ 											if this_selected_cnv.wanted == true
+ 												tmp_array = Array.new
+ 												tmp_array.push("")
+ 												this_selected_cnv.variable_order.map {|var|  tmp_array.push  "#{this_selected_cnv.send(var)}" }
+ 												this_sheet.add_row tmp_array
+ 												this_sheet.rows.last.cells[0].style = spacer_font
+ 											else
+ 												tmp_array = Array.new
+ 												tmp_array.push("")
+ 												this_selected_cnv.variable_order.map {|var|   tmp_array.push  "#{this_selected_cnv.send(var)}" }
+ 												this_sheet.add_row tmp_array, :style => not_selected_font
+ 												this_sheet.rows.last.cells[0].style = spacer_font
+ 											end
+ 											
+ 										end
+ 									else
+ 										this_sheet.add_row ["","Sample had no CNVs within profile intervals"]
+ 									end
+ 								else
+ 									this_sheet.add_row ["","ExomeDepth not run for this sample"]
+ 								end
+ 								
+ 								this_sheet.add_row []
+ 								this_sheet.add_row []
+ 							end#samples
+ 						end#sample_store
  						
- 						#output variables to spreadsheet in given order
- 						this_selected_variant.variable_order.map {|var|  this_sheet.row(row_number).push  "#{this_selected_variant.send(var)}" }
- 						
- 					end#variants
- 					row_number = row_number + 2
- 					
- 				end#samples
- 			end#sample_store
-    	end#samples_by_phenotype
-    	
+ 					end#worksheet
+ 				end#samples_by_phenotype
+
     	return workbook
     end
+    
 
 end

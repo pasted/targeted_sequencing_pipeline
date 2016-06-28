@@ -30,16 +30,16 @@ class Sample
 	  		self.phenotype = self.profile.split(self.panel_version).last.strip
 	  		#remove any non-phenotype string
 	  		if self.phenotype =~ /\s/
-	  			#puts ">>>>> #{self.phenotype}"
+	  			
 	  			self.phenotype = self.phenotype.split(" ").first
-	  			#puts "#{self.phenotype}"
+	  			
 	  		end
 	  	end
 	  end
 	  
 	  def add_metrics(metrics_array)
-	  	metrics_array.each do |this_metric|	
-	  		if this_metric.sample_id == "#{self.panel_version}_#{self.sample_id}"
+	  	metrics_array.each do |this_metric|
+	  		if this_metric.ex_number == "#{self.sequencing_panel_version}_#{self.ex_number}"
 	  			self.mean_bait_coverage = this_metric.mean_bait_coverage
 	  			self.pct_target_bases_2x = this_metric.pct_target_bases_2x
 	  			self.pct_target_bases_10x = this_metric.pct_target_bases_10x

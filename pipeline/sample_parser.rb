@@ -1,3 +1,16 @@
+# @author Garan Jones
+# SampleParser class: read in sample list and generate the Sample objects
+# @attr [String] batch_id
+# @attr [String] ftp_url
+# @attr [String] base_path
+# @attr [String] variants_directory
+# @attr [String] intervals_directory
+# @attr [String] transcript_file_path
+# @attr [String] unwanted_file_path
+# @attr [String] wanted_file_path
+# @attr [String] sample_list_path
+# @attr [String] panel_id
+# @attr [String] panel_version
 class SampleParser
   require 'yaml'
   require 'smarter_csv'
@@ -6,6 +19,10 @@ class SampleParser
   attr_accessor :batch_id, :ftp_url, :base_path, :variants_directory, :intervals_directory, :transcript_file_path 
   attr_accessor :unwanted_file_path, :wanted_file_path, :sample_list_path, :panel_id, :panel_version
   
+  	# @author Garan Jones
+		# Use Picard to convert the SAM input to a BAM output
+  	# @param sample_file_path [String] The filepath to the sample list
+  	# @return [Array<Object>] An array of Sample objects
   def parse_sample_list(sample_file_path)
   	options = { :col_sep => "," }
   	sample_array = Array.new

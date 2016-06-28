@@ -1,5 +1,11 @@
+# @author Garan Jones
+# Wrapper class: Handles Process and Thread spawning
 class Wrapper
 	
+			# Downloads Fastq and MD5sum data
+			# @param cmd [String] String conatining the shell command to be run
+			# @param logger [Object] The Logger instance
+			# @return [Array<String, Object>] An array with command exit status and an IO.pipe object
 		def run_command(cmd, logger)
 			#setup IO pipe to collect outputs from new process
 			pipe_cmd_in, pipe_cmd_out = IO.pipe
@@ -27,4 +33,5 @@ class Wrapper
 			end
 			return [@exitstatus, out]
 		end
+		
 end

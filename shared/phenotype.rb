@@ -1,9 +1,9 @@
 class Phenotype
-		attr_accessor :name, :genes
+	attr_accessor :name, :genes
 		
-		def initialize(name, genes)
-			self.name = name
-			self.genes = genes
+	def initialize(name, genes)
+		self.name = name
+		self.genes = genes
   	end
   	
   	def all_transcripts

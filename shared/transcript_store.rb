@@ -1,8 +1,8 @@
 class TranscriptStore
-		attr_accessor :phenotypes
+	attr_accessor :phenotypes
 		
-		def initialize(phenotypes)
-			self.phenotypes = phenotypes
+	def initialize(phenotypes)
+		self.phenotypes = phenotypes
   	end
   	
   	def	list_all_transcripts
@@ -11,23 +11,28 @@ class TranscriptStore
   		available_transcripts.uniq!
   		return available_transcripts
     end
-    
-    def transcripts_to_excel(workbook, panel_version)
-    	this_sheet = workbook.create_worksheet :name => "#{panel_version} Transcripts"
-    	row_number = 0
-    	format = Spreadsheet::Format.new :color => :xls_color_42,
-                                 :weight => :bold,
-                                 :size => 12
-                    
+  	
+  	def transcripts_to_axlsx(workbook, panel_version)
+  		
+  		this_sheet = workbook.add_worksheet(:name => "#{panel_version} Transcripts")
+  		#case panel_version
+  		#when "V501"
+  		#	title_font = workbook.styles.add_style :bg_color => "5CA56B", :fg_color => "FF", :sz => 12
+  		#when "V5"
+  		#	title_font = workbook.styles.add_style :bg_color => "4B2583", :fg_color => "FF", :sz => 12
+  		#when "V602"
+  		#	title_font = workbook.styles.add_style :bg_color => "7D8325", :fg_color => "FF", :sz => 12
+  		#else
+  		#	title_font = workbook.styles.add_style :bg_color => "727272", :fg_color => "FF", :sz => 12
+  		#end
+  		title_font = workbook.styles.add_style :bg_color => "5CA56B", :fg_color => "FF", :sz => 12
+  		
     	self.phenotypes.each do |this_phenotype|
-    		this_sheet.row(row_number).push this_phenotype.name
-    		this_sheet.row(row_number).default_format = format  
-    		row_number = row_number + 1
+    		this_sheet.add_row ["#{this_phenotype.name}"], :style => title_font
+    		  
     		this_phenotype.genes.each do |this_gene|
-    			this_sheet.row(row_number).push this_gene.gene_symbol, this_gene.transcript
-    			row_number = row_number + 1
-    		end
-    		row_number = row_number + 1
+    			this_sheet.add_row ["#{this_gene.gene_symbol}", "#{this_gene.transcript}"]    			
+    		end    		
     	end
     	return workbook
   	end
