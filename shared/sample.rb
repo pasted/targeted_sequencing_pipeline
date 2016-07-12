@@ -39,12 +39,15 @@ class Sample
 	  
 	  def add_metrics(metrics_array)
 	  	metrics_array.each do |this_metric|
-	  		if this_metric.ex_number == "#{self.sequencing_panel_version}_#{self.ex_number}"
+
+	  		if this_metric.sample.downcase == "#{self.capture_number.downcase}"
+
 	  			self.mean_bait_coverage = this_metric.mean_bait_coverage
 	  			self.pct_target_bases_2x = this_metric.pct_target_bases_2x
 	  			self.pct_target_bases_10x = this_metric.pct_target_bases_10x
 	  			self.pct_target_bases_20x = this_metric.pct_target_bases_20x
 	  			self.pct_target_bases_30x = this_metric.pct_target_bases_30x
+	  			
 	  		end
 	  	end
 		end

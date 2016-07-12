@@ -188,7 +188,7 @@ class SnpParser
   parser.base_path = this_batch.base_path
   parser.sample_list_path = this_batch.sample_list_path
 
-  samples = parser.parse_sample_list(parser.sample_list_path)
+  samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_batch.sample_list_path}")
 
   sample_store = SampleStore.new(samples)
   

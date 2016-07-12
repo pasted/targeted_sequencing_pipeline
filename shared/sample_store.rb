@@ -7,10 +7,16 @@ class SampleStore
 		
 		attr_accessor :samples_by_phenotype, :samples, :cnv_store
 		
-	def initialize(samples)
-		self.samples = samples
-		self.cnv_store = CnvStore.new
+		def initialize(samples)
+			self.samples = samples
+			self.cnv_store = CnvStore.new
   	end
+  	
+    def capture_numbers
+  		capture_number_array = self.samples.collect { |this_sample| this_sample.capture_number }
+  		return capture_number_array
+  	end
+  	
   	
   		# @author Garan Jones
 		  # Load in the list of transcript from a YAML file and construct a new TranscriptStore containing nested arrays of Phenotype and Gene objects
@@ -94,7 +100,7 @@ class SampleStore
   			end
   			
   			#Parse CNV files
-  			if ( ["MALE","FEMALE"].include?(gender) ) && ( ["v501","v602"].include?(this_panel.panel_id) )
+  			if ( ["MALE","FEMALE"].include?(gender) ) && ( ["v501","v602","v603"].include?(this_panel.panel_id) )
   				cnv_array = parser.parse_cnvs("#{this_panel.panel_id}", "#{this_batch.base_path}/#{parser.batch_id}/cnv_analysis/#{this_sample.gender.downcase}/#{this_panel.panel_id}/results/Sample_#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}.realigned.bam.csv")
   				self.cnv_store.cnvs.store("#{this_sample.ex_number}", cnv_array)
   				self.cnv_store.process_cnvs(this_sample, this_batch, this_panel, parser)
@@ -189,20 +195,27 @@ class SampleStore
 
  											end
  											
- 											#output variables to spreadsheet in given order
- 											if this_selected_cnv.wanted == true
+ 											#Output all cnvs for now
  												tmp_array = Array.new
  												tmp_array.push("")
  												this_selected_cnv.variable_order.map {|var|  tmp_array.push  "#{this_selected_cnv.send(var)}" }
  												this_sheet.add_row tmp_array
  												this_sheet.rows.last.cells[0].style = spacer_font
- 											else
- 												tmp_array = Array.new
- 												tmp_array.push("")
- 												this_selected_cnv.variable_order.map {|var|   tmp_array.push  "#{this_selected_cnv.send(var)}" }
- 												this_sheet.add_row tmp_array, :style => not_selected_font
- 												this_sheet.rows.last.cells[0].style = spacer_font
- 											end
+ 											
+ 											#output variables to spreadsheet in given order
+ 											#if this_selected_cnv.wanted == true
+ 											#	tmp_array = Array.new
+ 											#	tmp_array.push("")
+ 											#	this_selected_cnv.variable_order.map {|var|  tmp_array.push  "#{this_selected_cnv.send(var)}" }
+ 											#	this_sheet.add_row tmp_array
+ 											#	this_sheet.rows.last.cells[0].style = spacer_font
+ 											#else
+ 											#	tmp_array = Array.new
+ 											#	tmp_array.push("")
+ 											#	this_selected_cnv.variable_order.map {|var|   tmp_array.push  "#{this_selected_cnv.send(var)}" }
+ 											#	this_sheet.add_row tmp_array, :style => not_selected_font
+ 											#	this_sheet.rows.last.cells[0].style = spacer_font
+ 											#end
  											
  										end
  									else

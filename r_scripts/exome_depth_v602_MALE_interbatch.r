@@ -9,12 +9,12 @@ load("/mnt/Data1/resources/exome_depth_data/v602/v602_exons.RData")
 load("/mnt/Data1/resources/exome_depth_data/v602/v602_controls.RData")
 
 panel.version <- "v602"
-sequencing.run <- "validate_pipeline"
+sequencing.run <- "2016-07-04_2363"
 
 #setup output XML DOM
 xml.dom <- xmlOutputDOM()
 
-dir.base <- sprintf("/mnt/Data4/working_directory/garan/pipeline_validation/%s/cnv_analysis/male/%s", sequencing.run, panel.version)
+dir.base <- sprintf("/mnt/Data4/targeted_sequencing/%s/cnv_analysis/male/%s", sequencing.run, panel.version)
 dir.results <- sprintf("%s/results", dir.base)
 dir.logs <- sprintf("%s/logs", dir.base)
 
@@ -22,7 +22,7 @@ v602_exons.GRanges <- GRanges(seqnames = v602_exons$chromosome,
                               IRanges(start=v602_exons$start,end=v602_exons$end),
                               names = v602_exons$name)
                               
-alignment.folder <- sprintf("/mnt/Data4/working_directory/garan/pipeline_validation/%s/assembly/", sequencing.run)
+alignment.folder <- sprintf("/mnt/Data4/targeted_sequencing/%s/assembly/", sequencing.run)
 
 setwd(alignment.folder)
 
@@ -135,7 +135,7 @@ for (i in 1:nsamples) {
 		
 } # Samples loop
 
-dir.log <- sprintf("/mnt/Data4/working_directory/garan/pipeline_validation/%s/cnv_analysis/male/v602/logs/%s_male_%s.log", sequencing.run, sequencing.run, panel.version)
+dir.log <- sprintf("/mnt/Data4/targeted_sequencing/%s/cnv_analysis/male/v602/logs/%s_male_%s.log", sequencing.run, sequencing.run, panel.version)
 saveXML(xml.dom$value(), file=dir.logs)
 
 #stop clock

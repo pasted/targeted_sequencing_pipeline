@@ -25,6 +25,7 @@ chrom,start_pos,gene,wtnuc,varnuc,insnucs,delnucs,reason_for_filtering
 3,170727702,SLC2A2,,,,GTGT,Benign variant
 3,170727701,SLC2A2,,,GT,,Benign variant
 3,170727702,SLC2A2,,,,GT,Benign variant
+12,121416902,HNF1A,,,GAGCC,,Benign variant
 18,19762870,GATA6,A,G,,,Benign variant
 3,170727705,SLC2A2,,,,TGT,Benign variant
 3,170727705,SLC2A2,,,,T,Benign variant
@@ -224,3 +225,10 @@ X,48382117,EBP,,,,T,Benign variant
 19,7184651,INSR,,,,GA,Benign variant
 19,7119636,INSR,,,,AC,Benign variant
 17,40489892,STAT3,,,,ACTCCTTGACCTGAGGGAAT,Benign variant
+4,6293740,WFS1,G,A,,,Benign variant
+11,17428163,ABCC8,C,T,,,Benign variant
+12,121435265,HNF1A,C,T,,,Benign variant
+19,7184679,INSR,,,,AAATAAAT,Benign variant
+17,36093864,HNF1B,,,,CAGA,Benign variant
+4,151850227,LRBA,,,,A,Sequence artefact
+11,17464808,ABCC8,A.G,,,Benign variant

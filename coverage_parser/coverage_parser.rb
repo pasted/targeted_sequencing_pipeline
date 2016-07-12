@@ -6,7 +6,7 @@ class CoverageParser
 
   require './coverage'
   require './interval'
-  require './metric'
+  require '../shared/metric'
   require '../shared/sample'
   require '../shared/batch'
   require '../shared/panel'
@@ -168,7 +168,7 @@ class CoverageParser
   		
   		tmp_sample_id									= csv.first[:sample_id]
   		if tmp_sample_id
-  			this_metric.sample_id = tmp_sample_id.split("_").last
+  			this_metric.ex_number = tmp_sample_id.split("_").last
   	  end
   		metrics_array.push(this_metric)
 
@@ -318,7 +318,7 @@ class CoverageParser
   		
   		metrics_array = parser.parse_metrics(metrics_file_path)
 
-  		samples = parser.parse_sample_list(this_batch.sample_list_path)
+  		samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_batch.sample_list_path}")
   		#puts samples.inspect
   		
   		this_book = Spreadsheet::Workbook.new
