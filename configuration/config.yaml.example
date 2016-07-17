@@ -18,7 +18,7 @@
     common_variants_nkmi_path: "/mnt/Data1/resources/common_no_known_medical_impact_20160302-edited.vcf"
     common_artefacts_path: "/mnt/Data1/resources/common_artefacts/V501_19052014_common_artefacts.vcf"
     dbsnp_path: "/mnt/Data1/resources/dbsnp_137.b37.vcf"
-    alamut_path: "/mnt/Data3/alamut-batch-1.5.0/alamut-batch"
+    alamut_path: "/mnt/Data3/alamut-batch-1.4.3/alamut-batch"
     ndm_snps_path: "/mnt/Data1/targeted_sequencing/intervals/general/6q24_SNPs.interval_list"
     type_one_snps_path: "/mnt/Data1/targeted_sequencing/intervals/general/type_one_SNPs.interval_list"
     phenotype_metric_line: 8
