@@ -100,8 +100,8 @@ class SampleStore
   			end
   			
   			#Parse CNV files
-  			if ( ["MALE","FEMALE"].include?(gender) ) && ( ["v501","v602","v603"].include?(this_panel.panel_id) )
-  				cnv_array = parser.parse_cnvs("#{this_panel.panel_id}", "#{this_batch.base_path}/#{parser.batch_id}/cnv_analysis/#{this_sample.gender.downcase}/#{this_panel.panel_id}/results/Sample_#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}.realigned.bam.csv")
+  			if ( ["MALE","FEMALE"].include?(gender.upcase) ) && ( ["v501","v602","v603"].include?(this_panel.panel_id) )
+  				cnv_array = parser.parse_cnvs("#{this_panel.panel_id}", "#{this_batch.base_path}/#{parser.batch_id}/cnv_analysis/#{this_sample.gender.downcase}/#{this_panel.panel_id.downcase}/results/Sample_#{this_panel.panel_id.downcase}_#{this_sample.ex_number}_#{gender}.realigned.bam.csv")
   				self.cnv_store.cnvs.store("#{this_sample.ex_number}", cnv_array)
   				self.cnv_store.process_cnvs(this_sample, this_batch, this_panel, parser)
   				puts "@@@@ #{this_sample.inspect}"
@@ -179,6 +179,8 @@ class SampleStore
  								
  								this_sheet.add_row []
  								
+ 								this_sheet.add_row ["EX NUMBER:", "#{this_sample.ex_number}", "PANEL VERSION", "#{this_sample.panel_version}"], :style => title_font
+ 								
  								if self.cnv_store.cnvs.has_key?("#{this_sample.ex_number}")
  									this_cnv_array = self.cnv_store.cnvs.fetch("#{this_sample.ex_number}")
  									puts this_cnv_array.inspect
@@ -188,19 +190,19 @@ class SampleStore
  												cnv_header_array = this_selected_cnv.variable_order
  												cnv_header_array.map!{ |element| element.to_s }
  												tmp_array = Array.new
- 												tmp_array.push("")
+ 												#tmp_array.push("")
  												tmp_array.concat(cnv_header_array)
  												this_sheet.add_row tmp_array
- 												this_sheet.rows.last.cells[0].style = spacer_font
+ 												#this_sheet.rows.last.cells[0].style = spacer_font
 
  											end
  											
  											#Output all cnvs for now
  												tmp_array = Array.new
- 												tmp_array.push("")
+ 												#tmp_array.push("")
  												this_selected_cnv.variable_order.map {|var|  tmp_array.push  "#{this_selected_cnv.send(var)}" }
  												this_sheet.add_row tmp_array
- 												this_sheet.rows.last.cells[0].style = spacer_font
+ 												#this_sheet.rows.last.cells[0].style = spacer_font
  											
  											#output variables to spreadsheet in given order
  											#if this_selected_cnv.wanted == true

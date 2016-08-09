@@ -40,7 +40,7 @@ class Sample
 	  def add_metrics(metrics_array)
 	  	metrics_array.each do |this_metric|
 
-	  		if this_metric.sample.downcase == "#{self.capture_number.downcase}"
+	  		if this_metric.sample_id.downcase == "#{self.capture_number.downcase}"
 
 	  			self.mean_bait_coverage = this_metric.mean_bait_coverage
 	  			self.pct_target_bases_2x = this_metric.pct_target_bases_2x

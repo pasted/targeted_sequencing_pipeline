@@ -369,10 +369,11 @@ class AlamutParser
 	def parse_cnvs(panel, cnvs_file_path)
 		options = { :col_sep => "," }
 		cnv_array = Array.new
+		puts cnvs_file_path
 		if File.exists?(cnvs_file_path)
   			SmarterCSV.process( cnvs_file_path, options ) do |csv|
   				this_cnv = Cnv.new
-  
+  				puts csv.first.inspect
   				this_cnv.start_p 					= csv.first[:"start.p"]
   				this_cnv.end_p 						= csv.first[:"end.p"]
   				this_cnv.type 						= csv.first[:type]
@@ -429,10 +430,9 @@ class AlamutParser
 		processed_samples = Array.new
 		samples.each do |this_sample|
 			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.ex_number}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
-			puts "##################################"
-			puts phenotype_metric_file_path
+
 			this_metric = this_parser.parse_metrics(phenotype_metric_file_path, this_batch.phenotype_metric_line)
-			puts this_metric.inspect
+
 			this_sample.add_metrics(Array.new.push(this_metric))
 			processed_samples.push(this_sample)
 		end
@@ -467,7 +467,7 @@ class AlamutParser
   		#this_book = Spreadsheet::Workbook.new
   		axlsx_package = Axlsx::Package.new
   		this_book = axlsx_package.workbook
-  		title_font = this_book.styles.add_style :bg_color => "5CA56B", :fg_color => "FF", :sz => 12
+  		title_font = this_book.styles.add_style :b => true
    	
   		#this_book = sample_store.process_samples(parser, this_batch, this_book, title_font)
   		tmp_sample_store = sample_store.process_samples(parser, this_batch, this_book, title_font)
@@ -475,6 +475,27 @@ class AlamutParser
   		
   		this_book = tmp_sample_store.samples_to_axlsx(this_book, title_font)
 		
+  		this_book.add_worksheet(:name => "Batch") do |this_sheet|
+  			
+  				this_sheet.add_row ["Batch Id", "#{this_batch.batch_id}"]
+  				this_sheet.add_row ["FTP url", "#{this_batch.ftp_url}"]
+  				this_sheet.add_row ["Base path", "#{this_batch.base_path}"]
+  				this_sheet.add_row ["Sample list path", "#{this_batch.sample_list_path}"]
+  				this_sheet.add_row ["Alamut path", "#{this_batch.alamut_path}"]
+  				this_sheet.add_row ["Java path", "#{this_batch.java_path}"]
+  				this_sheet.add_row ["Rscript path", "#{this_batch.rscript_path}"]
+  				this_sheet.add_row ["BWA path", "#{this_batch.bwa_path}"]
+  				this_sheet.add_row ["Picard path", "#{this_batch.picard_path}"]
+  				this_sheet.add_row ["GATK version", "#{this_batch.gatk_version}"]
+  				this_sheet.add_row ["GATK path", "#{this_batch.gatk_path}"]
+  				this_sheet.add_row ["Reference path", "#{this_batch.reference_path}"]
+  				this_sheet.add_row ["Common variant NKMI path", "#{this_batch.common_variants_nkmi_path}"]
+  				this_sheet.add_row ["Common artefacts path", "#{this_batch.common_artefacts_path}"]
+  				this_sheet.add_row ["dbSNP path", "#{this_batch.dbsnp_path}"]
+  				this_sheet.add_row ["FTP url", "#{this_batch.ftp_url}"]
+  				this_sheet.add_row ["Flowcell", "#{this_batch.flowcell}"]
+
+  		end
   	
 		#write out intervals that have been analysed by phenotype
 		

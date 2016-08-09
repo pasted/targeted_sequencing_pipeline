@@ -6,8 +6,8 @@ class Cnv
 
 	
 	def variable_order
-		variable_order = [:start_p, :end_p, :type, :nexons, :genome_start, :genome_end]          
-		variable_order = variable_order + [:chromosome, :id, :bayes_factor, :reads_expected, :reads_observed, :reads_ratio, :exons, :wanted]                                                                                                                                                                                   
+		variable_order = [:exons, :type, :bayes_factor, :reads_ratio, :reads_expected, :reads_observed]          
+		variable_order = variable_order + [:nexons, :chromosome, :id, :genome_start, :genome_end, :start_p, :end_p]                                                                                                                                                                                   
 		return variable_order
 	end
 	

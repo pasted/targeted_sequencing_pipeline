@@ -165,7 +165,7 @@ class CoverageParser
   		this_metric.hs_penalty_100x 						= csv.first[:hs_penalty_100x]
   		this_metric.at_dropout 									= csv.first[:at_dropout]
   		this_metric.gc_dropout 									= csv.first[:gc_dropout]
-  		
+  		this_metric.sample_id											= csv.first[:sample_id]
   		tmp_sample_id									= csv.first[:sample_id]
   		if tmp_sample_id
   			this_metric.ex_number = tmp_sample_id.split("_").last
