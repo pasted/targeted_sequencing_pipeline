@@ -2,6 +2,8 @@ class AlamutParser
   require 'yaml'
   require 'smarter_csv'
   require 'axlsx'
+  require 'active_support'
+  
   require_relative 'interval'
   require_relative 'region'
   require_relative '../shared/gene'
@@ -430,9 +432,8 @@ class AlamutParser
 		processed_samples = Array.new
 		samples.each do |this_sample|
 			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.ex_number}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
-
+			
 			this_metric = this_parser.parse_metrics(phenotype_metric_file_path, this_batch.phenotype_metric_line)
-
 			this_sample.add_metrics(Array.new.push(this_metric))
 			processed_samples.push(this_sample)
 		end
@@ -515,7 +516,7 @@ class AlamutParser
 
 		axlsx_package.serialize "#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.#{Time.now.strftime("%d-%m-%Y-%H%M%S")}.xlsx"
 		
-		#File.open("#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.yaml", 'w+') {|f| f.write(sample_store.to_yaml)}
+		File.open("#{parser.base_path}/#{parser.batch_id}/results/#{parser.batch_id}_variants.yaml", 'w+') {|f| f.write(sample_store.to_yaml)}
 
 		return sample_store
 

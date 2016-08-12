@@ -10,7 +10,7 @@
 # @attr [String] percent_duplication 	The percentage of mapped sequence that is marked as duplicate.
 # @attr [String] estimated_library_size The estimated number of unique molecules in the library based on PE duplication.
 class Duplicate
-	attr_accessor :library, :unpaired_reads_examined, :read_pairs_examined, :unmapped_reads, :unpaired_read_duplicates, :read_pair_duplicates
+	attr_accessor :library, :unpaired_reads_examined, :read_pairs_examined, :secondary_or_supplementary_rds, :unmapped_reads, :unpaired_read_duplicates, :read_pair_duplicates
 	attr_accessor :read_pair_optical_duplicates, :percent_duplication, :estimated_library_size
 
 
@@ -18,7 +18,7 @@ class Duplicate
 		# Specified order that the attributes will be printed out
   	# @return [Array<Symbol>] An array of attribute symbols
 	def variable_order
-			variable_order = [:library, :unpaired_reads_examined, :read_pairs_examined, :unmapped_reads, :unpaired_read_duplicates, :read_pair_duplicates]          
+			variable_order = [:library, :unpaired_reads_examined, :read_pairs_examined, :secondary_or_supplementary_rds, :unmapped_reads, :unpaired_read_duplicates, :read_pair_duplicates]          
 			variable_order = variable_order + [:read_pair_optical_duplicates, :percent_duplication, :estimated_library_size]                                                                                                                                                                                   
 			return variable_order
 	end

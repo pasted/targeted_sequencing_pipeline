@@ -176,7 +176,7 @@ class Pipeline
  	  			end
  	  			panels.uniq!
 
-	 		  	["v501", "v602"].each do |this_panel_version|
+	 		  	["v501", "v603"].each do |this_panel_version|
 						run_type = "interbatch"
 	 		  		this_cnv_caller = CnvCaller.new
 	 		  		out = this_cnv_caller.exome_depth(this_panel_version, this_gender, run_type, this_batch, logger)
@@ -201,7 +201,7 @@ class Pipeline
 			samples_first = []
 			
  			samples.each do |this_sample|
- 				if [ "v603_EX1606775","v603_EX1606254","v603_EX1606230","v603_EX1606446","v603_EX1606695","v603_EX1606258","v603_EX1606754","v603_EX1606249","v603_EX1606547","v603_EX1607555","v603_EX1606559","v603_EX1508144" ].include? this_sample.capture_number
+ 				if [ "v603_EX1508144" ].include? this_sample.capture_number
  					samples_first.push this_sample	
  				else
  					#samples_first.push this_sample
@@ -242,29 +242,30 @@ class Pipeline
 # 		end  
  	
 #		Main pipeline loop, set to the number of concurrent processes to reflect server load
-# 		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
-# 			puts this_sample.inspect
-# 			
+ 		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
+ 			puts this_sample.inspect
+ 			
 # 			run_assembly(this_sample, this_batch, logger)
-# 			
-# 			run_metrics(this_sample, this_batch, logger)
-# 			
-# 			run_variant_caller(this_sample, this_batch, logger)
-# 			
-# 			run_select_variants(this_sample, this_batch, logger)
-#					
-# 		end
+ 			
+ 			run_metrics(this_sample, this_batch, logger)
+ 			
+ 			run_variant_caller(this_sample, this_batch, logger)
+ 			
+ 			run_select_variants(this_sample, this_batch, logger)
+					
+ 		end
 # 	
 # 
 #	 	#Run ExomeDepth over gender specific batches
 #	 	run_exome_depth(samples, this_batch, logger)
 # 	  
 #	 	#annotate variants
-# 		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
+ 		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
 # 		#Parse batch metrics in order
-# 		this_metric = ParseMetrics.new
-# 		this_metric.parse_batch_metrics(this_batch, samples)
+ 		this_metric = ParseMetrics.new
+ 		this_metric.parse_batch_metrics(this_batch, samples)
 
+		#double tab in HSmetrics columns is throwing the metrics out of alignment, use sed to remove
  		`sed -i $'s/\t\t/\t/g' #{base_path}/metrics/*`
 		#SNP typing
 

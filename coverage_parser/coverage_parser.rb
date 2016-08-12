@@ -165,7 +165,7 @@ class CoverageParser
   		this_metric.hs_penalty_100x 						= csv.first[:hs_penalty_100x]
   		this_metric.at_dropout 									= csv.first[:at_dropout]
   		this_metric.gc_dropout 									= csv.first[:gc_dropout]
-  		this_metric.sample_id											= csv.first[:sample_id]
+  		this_metric.sample_id										= csv.first[:sample_id]
   		tmp_sample_id									= csv.first[:sample_id]
   		if tmp_sample_id
   			this_metric.ex_number = tmp_sample_id.split("_").last
@@ -207,9 +207,6 @@ class CoverageParser
   		base_path 						= this_batch.base_path
   		
 		  full_sample_id 				= this_sample.capture_number
-  		phenotype							= this_sample.phenotype
-  		mody_id								= this_sample.mody_number
-  		exeter_id							= this_sample.ex_number
   	
   		sample_id 						= this_sample.sample_id
   		sample_panel_version 	= this_sample.panel_version
@@ -225,24 +222,24 @@ class CoverageParser
   		panel_version 				= this_panel.panel_version
   		coverage_cutoff 			= this_panel.coverage_cutoff
   		
-  		puts "SAMPLE ID :: #{sample_id}"
+  		puts "SAMPLE ID :: #{this_sample.ex_number}"
   		puts "panel id #{panel_id}"
   		
-  		temp_sample_id = "#{panel_version.upcase}_#{sample_id}"
+  		temp_sample_id = "#{panel_version.upcase}_#{this_sample.ex_number}"
   		
-  		this_sheet = this_book.create_worksheet :name => "#{temp_sample_id}_#{phenotype}"
+  		this_sheet = this_book.create_worksheet :name => "#{this_sample.ex_number}_#{this_sample.phenotype}"
   		
   		local_parser = CoverageParser.new()
   
-  		coverage_array = local_parser.load_coverage("#{base_path}/#{batch_id}/coverage/#{panel_id}_#{sample_id}_#{this_sample.gender.upcase}_#{phenotype}.phenotype.by_base_coverage", temp_sample_id, coverage_cutoff)
+  		coverage_array = local_parser.load_coverage("#{base_path}/#{batch_id}/coverage/#{panel_id}_#{this_sample.ex_number}_#{this_sample.gender.upcase}_#{this_sample.phenotype}.phenotype.by_base_coverage", temp_sample_id, coverage_cutoff)
   		puts "Loaded coverage : #{coverage_array.length} records"
   		
-  		interval_array = local_parser.load_bed_intervals("#{intervals_directory}/#{panel_id}_#{phenotype}_metrics.bed")
+  		interval_array = local_parser.load_bed_intervals("#{intervals_directory}/#{panel_id}_#{this_sample.phenotype}_metrics.bed")
   		puts "Loaded intervals : #{interval_array.length} records"
   		
   		if (coverage_array != nil) && (interval_array != nil)
   		  completed_coverage = local_parser.parse_intervals(coverage_array, interval_array)
-  		  file_name = "#{base_path}/#{batch_id}/coverage/#{sample_id}_#{phenotype}_metrics.less_than_30_coverage"
+  		  file_name = "#{base_path}/#{batch_id}/coverage/#{panel_id}_#{this_sample.ex_number}_#{this_sample.phenotype}_metrics.less_than_30_coverage"
   		  File.open(file_name, "w") do |this_file|
   		  	output_count = 0
   		  	row_count = 0
@@ -250,11 +247,11 @@ class CoverageParser
   		  	interval_names_seen = Array.new
   		  	this_sheet.row(row_count).push "SAMPLE_NAME", "#{full_sample_id}"
   		  	row_count = row_count + 1
-  		  	this_sheet.row(row_count).push "MODY_NUMBER", "#{mody_id}"
+  		  	this_sheet.row(row_count).push "MODY_NUMBER", "#{this_sample.mody_number}"
   		  	row_count = row_count + 1
-  		  	this_sheet.row(row_count).push "EX_NUMBER", "#{exeter_id}"
+  		  	this_sheet.row(row_count).push "EX_NUMBER", "#{this_sample.ex_number}"
   		  	row_count = row_count + 1
-  		  	this_sheet.row(row_count).push "GENESET_ANALYSED", "#{phenotype}"
+  		  	this_sheet.row(row_count).push "GENESET_ANALYSED", "#{this_sample.phenotype}"
   		  	row_count = row_count + 1
   		  	this_sheet.row(row_count).push "MEAN_BAIT_COVERAGE", "#{this_sample.mean_bait_coverage}"
   		  	row_count = row_count + 1
@@ -303,7 +300,6 @@ class CoverageParser
   if __FILE__ == $PROGRAM_NAME
 
   	#Load the config YAML file and pass the settings to local variables
- 		#config = YAML.load_file('../configuration/config.yaml')
   		
  		this_batch = YAML.load_file('../configuration/config.yaml')
  			
