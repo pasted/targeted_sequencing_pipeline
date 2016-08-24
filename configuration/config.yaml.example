@@ -67,7 +67,7 @@
         panel_version: "V6"
         variants_directory: "variants/haplotyper"
         intervals_directory: "/mnt/Data1/targeted_sequencing/intervals/v6/grch-37"
-        transcript_file_path: "/mnt/Data1/targeted_sequencing/intervals/v6/grch-37v6_transcripts.yaml"
+        transcript_file_path: "/mnt/Data1/targeted_sequencing/intervals/v6/grch-37/v6_transcripts.yaml"
         unwanted_file_path: "scripts/configuration/unwanted_variants.csv"
         wanted_file_path: "scripts/configuration/wanted_regions.csv"
         coverage_cutoff: "30"
