@@ -209,18 +209,18 @@ class Pipeline
  			end
  	
  	  #Seperate loop for the WGET cmd due to a throttling issue
-# 		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
-# 			this_wget = Wget.new
-# 			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
-# 			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
-# 		
-# 			this_rename = Rename.new
-# 			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
-# 			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
-#
-# 			out = this_rename.rename_symlink(this_sample, this_batch, logger)
-# 			this_pipeline.error_check(out, this_sample, "Symlink rename", logger)
-#		end
+ 		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
+ 			this_wget = Wget.new
+ 			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
+ 			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
+ 		
+ 			this_rename = Rename.new
+ 			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
+ 			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
+
+ 			out = this_rename.rename_symlink(this_sample, this_batch, logger)
+ 			this_pipeline.error_check(out, this_sample, "Symlink rename", logger)
+		end
 
 
 #Only required if the Fastq files are not gzipped
@@ -245,7 +245,7 @@ class Pipeline
  		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
  			puts this_sample.inspect
  			
-# 			run_assembly(this_sample, this_batch, logger)
+ 			run_assembly(this_sample, this_batch, logger)
  			
  			run_metrics(this_sample, this_batch, logger)
  			
@@ -254,33 +254,36 @@ class Pipeline
  			run_select_variants(this_sample, this_batch, logger)
 					
  		end
-# 	
-# 
-#	 	#Run ExomeDepth over gender specific batches
-#	 	run_exome_depth(samples, this_batch, logger)
-# 	  
-#	 	#annotate variants
- 		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
-# 		#Parse batch metrics in order
+ 	
+ 
+	 	#Run ExomeDepth over gender specific batches
+	 	run_exome_depth(samples, this_batch, logger)
+ 	  
+	 	#annotate variants
+		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
+		
+		#double tab in HSmetrics columns is throwing the metrics out of alignment, use sed to remove
+ 		`sed -i $'s/\t\t/\t/g' #{base_path}/metrics/*`
+ 		
+ 		#Parse batch metrics in order
  		this_metric = ParseMetrics.new
  		this_metric.parse_batch_metrics(this_batch, samples)
 
-		#double tab in HSmetrics columns is throwing the metrics out of alignment, use sed to remove
- 		`sed -i $'s/\t\t/\t/g' #{base_path}/metrics/*`
+
 		#SNP typing
 
-# 		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])
-# 		if input_file_string != ""
-# 			this_caller = VariantCaller.new
-# 		#	6q24 SNPs
-# 		#	Only parse samples with the 6q24 region targeted   
-# 			this_caller.call_6q24_snps(this_batch, logger, input_file_string)
-# 		#	type_one_snps
-# 			this_caller.call_type_one_snps(this_batch, logger, input_file_string)
-# 		else
-# 			puts "No v5 or v501 samples to run through snp typing"
-# 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
-# 		end
+ 		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])
+ 		if input_file_string != ""
+ 			this_caller = VariantCaller.new
+ 		#	6q24 SNPs
+ 		#	Only parse samples with the 6q24 region targeted   
+ 			this_caller.call_6q24_snps(this_batch, logger, input_file_string)
+ 		#	type_one_snps
+ 			this_caller.call_type_one_snps(this_batch, logger, input_file_string)
+ 		else
+ 			puts "No v5 or v501 samples to run through snp typing"
+ 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
+ 		end
 	end#run_pipeline method
 	
 	
