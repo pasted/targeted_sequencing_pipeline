@@ -25,6 +25,7 @@ class Pipeline
 		require_relative 'variants_to_table'
 		require_relative 'cnv_caller'
 		require_relative 'file_compressor'
+		require_relative 'clean_caller'
 		
 	# @author Garan Jones
 	# Check the IO.pipe STDOUT returned from Parallel from a non-zero value (error)
@@ -184,6 +185,17 @@ class Pipeline
 	 		    end
  	  	end
  	 end
+ 	 
+ 	 def run_clean_call(this_sample, this_batch, logger)
+ 	 	 ["v501", "v603"].each do |this_panel_version|
+	 		  this_clean_caller = CleanCaller.new
+	 		  out = this_clean_caller.cleancall_mpileup(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_tabix(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_verify(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_cleanup(this_sample, this_batch, logger)
+	 		  puts out
+	 	 end
+ 	 end
 	
 	 def run_pipeline(this_pipeline)
 	 	 	path = File.expand_path(__FILE__)
@@ -209,18 +221,18 @@ class Pipeline
  			end
  	
  	  #Seperate loop for the WGET cmd due to a throttling issue
- 		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
- 			this_wget = Wget.new
- 			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
- 			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
- 		
- 			this_rename = Rename.new
- 			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
- 			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
-
- 			out = this_rename.rename_symlink(this_sample, this_batch, logger)
- 			this_pipeline.error_check(out, this_sample, "Symlink rename", logger)
-		end
+# 		results = Parallel.map(samples, :in_processes=>1 ) do |this_sample|
+# 			this_wget = Wget.new
+# 			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
+# 		
+# 			this_rename = Rename.new
+# 			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
+#
+# 			out = this_rename.rename_symlink(this_sample, this_batch, logger)
+# 			this_pipeline.error_check(out, this_sample, "Symlink rename", logger)
+#		end
 
 
 #Only required if the Fastq files are not gzipped
@@ -245,45 +257,47 @@ class Pipeline
  		results = Parallel.map(samples, :in_processes=>20 ) do |this_sample|
  			puts this_sample.inspect
  			
- 			run_assembly(this_sample, this_batch, logger)
+# 			run_assembly(this_sample, this_batch, logger)
  			
- 			run_metrics(this_sample, this_batch, logger)
+ 			run_clean_call(this_sample, this_batch, logger)
  			
- 			run_variant_caller(this_sample, this_batch, logger)
+# 			run_metrics(this_sample, this_batch, logger)
  			
- 			run_select_variants(this_sample, this_batch, logger)
+# 			run_variant_caller(this_sample, this_batch, logger)
+ 			
+# 			run_select_variants(this_sample, this_batch, logger)
 					
  		end
  	
  
 	 	#Run ExomeDepth over gender specific batches
-	 	run_exome_depth(samples, this_batch, logger)
+#	 	run_exome_depth(samples, this_batch, logger)
  	  
 	 	#annotate variants
-		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
+#		this_pipeline.annotate_variants(samples, this_batch, logger, this_pipeline)
 		
 		#double tab in HSmetrics columns is throwing the metrics out of alignment, use sed to remove
- 		`sed -i $'s/\t\t/\t/g' #{base_path}/metrics/*`
+# 		`sed -i $'s/\t\t/\t/g' #{base_path}/metrics/*`
  		
  		#Parse batch metrics in order
- 		this_metric = ParseMetrics.new
- 		this_metric.parse_batch_metrics(this_batch, samples)
+# 		this_metric = ParseMetrics.new
+# 		this_metric.parse_batch_metrics(this_batch, samples)
 
 
 		#SNP typing
 
- 		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])
- 		if input_file_string != ""
- 			this_caller = VariantCaller.new
+# 		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])
+# 		if input_file_string != ""
+# 			this_caller = VariantCaller.new
  		#	6q24 SNPs
  		#	Only parse samples with the 6q24 region targeted   
- 			this_caller.call_6q24_snps(this_batch, logger, input_file_string)
+# 			this_caller.call_6q24_snps(this_batch, logger, input_file_string)
  		#	type_one_snps
- 			this_caller.call_type_one_snps(this_batch, logger, input_file_string)
- 		else
- 			puts "No v5 or v501 samples to run through snp typing"
- 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
- 		end
+# 			this_caller.call_type_one_snps(this_batch, logger, input_file_string)
+# 		else
+# 			puts "No v5 or v501 samples to run through snp typing"
+# 			logger.info('stage') { "Variant caller - SNP Typing :: No v5 or v501 samples present." }
+# 		end
 	end#run_pipeline method
 	
 	

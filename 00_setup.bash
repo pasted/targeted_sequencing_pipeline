@@ -28,6 +28,7 @@ mkdir ../variants/freebayes
 mkdir ../variants/platypus
 mkdir ../variants_6q24
 mkdir ../variants_t1d
+mkdir ../clean_call
 #Update the regions to dismiss / keep from the main repo
 cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv
 cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_process/wanted_regions.csv configuration/wanted_regions.csv
