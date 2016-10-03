@@ -28,6 +28,7 @@ mkdir ../variants/freebayes
 mkdir ../variants/platypus
 mkdir ../variants_6q24
 mkdir ../variants_t1d
+mkdir ../clean_call
 #Update the regions to dismiss / keep from the main repo
 if [ "$(hostname)" == "dna-prd-app01.exe.nhs.uk" ]; then
 	cp /mnt/data1/resources/diagnostic_intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv

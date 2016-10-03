@@ -25,6 +25,7 @@ class Pipeline
 		require_relative 'variants_to_table'
 		require_relative 'cnv_caller'
 		require_relative 'file_compressor'
+		require_relative 'clean_caller'
 		
 	# @author Garan Jones
 	# Check the IO.pipe STDOUT returned from Parallel from a non-zero value (error)
@@ -184,6 +185,17 @@ class Pipeline
 	 		    end
  	  	end
  	 end
+ 	 
+ 	 def run_clean_call(this_sample, this_batch, logger)
+ 	 	 ["v501", "v603"].each do |this_panel_version|
+	 		  this_clean_caller = CleanCaller.new
+	 		  out = this_clean_caller.cleancall_mpileup(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_tabix(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_verify(this_sample, this_batch, logger)
+	 		  out += this_clean_caller.cleancall_cleanup(this_sample, this_batch, logger)
+	 		  puts out
+	 	 end
+ 	 end
 	
 	 def run_pipeline(this_pipeline)
 	 	 	path = File.expand_path(__FILE__)
@@ -246,6 +258,8 @@ class Pipeline
  			puts this_sample.inspect
  			
  			run_assembly(this_sample, this_batch, logger)
+ 			
+ 			run_clean_call(this_sample, this_batch, logger)
  			
  			run_metrics(this_sample, this_batch, logger)
  			

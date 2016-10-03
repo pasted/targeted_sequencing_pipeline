@@ -23,6 +23,8 @@
     #common_artefacts_path: "/mnt/Data1/resources/common_artefacts"
     dbsnp_path: "/mnt/Data1/resources/dbsnp_137.b37.vcf"
     alamut_path: "/mnt/Data3/alamut-batch-1.5.2/alamut-batch"
+    cleancall_path: "/usr/share/cleancall"
+    cleancall_resources_path: "/mnt/Data1/resources/clean_call_data"
     ndm_snps_path: "/mnt/Data1/targeted_sequencing/intervals/general/6q24_SNPs.interval_list"
     type_one_snps_path: "/mnt/Data1/targeted_sequencing/intervals/general/type_one_SNPs.interval_list"
     phenotype_metric_line: 8
