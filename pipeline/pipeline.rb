@@ -269,7 +269,6 @@ class Pipeline
  		this_metric = ParseMetrics.new
  		this_metric.parse_batch_metrics(this_batch, samples)
 
-
 		#SNP typing
 
  		input_file_string = this_pipeline.generate_input_file_string(this_batch, samples, ["v5","v501"])

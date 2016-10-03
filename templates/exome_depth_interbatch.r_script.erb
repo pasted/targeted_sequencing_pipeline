@@ -5,8 +5,8 @@ library("XML")
 #start clock
 ptm <- proc.time()
 
-load("/mnt/Data1/resources/exome_depth_data/<%= @panel_version %>/<%= @panel_version %>_exons.RData")
-load("/mnt/Data1/resources/exome_depth_data/<%= @panel_version %>/<%= @panel_version %>_controls.RData")
+load("<%= @batch.exome_depth_resources_path %>/<%= @panel_version %>/<%= @panel_version %>_exons.RData")
+load("<%= @batch.exome_depth_resources_path %>/<%= @panel_version %>/<%= @panel_version %>_controls.RData")
 
 panel.version <- "<%= @panel_version %>"
 sequencing.run <- "<%= @batch.batch_id %>"
@@ -28,7 +28,7 @@ setwd(alignment.folder)
 
 print(alignment.folder)
 
-bed <- '/mnt/Data1/resources/exome_depth_data/<%= @panel_version %>/<%= @panel_version %>_CNV_121.bed'
+bed <- '<%= @batch.exome_depth_resources_path %>/<%= @panel_version %>/<%= @panel_version %>_CNV_120bp.bed'
 reference.fasta <- '<%= @batch.reference_path %>'
 
 

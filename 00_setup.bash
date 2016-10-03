@@ -29,6 +29,12 @@ mkdir ../variants/platypus
 mkdir ../variants_6q24
 mkdir ../variants_t1d
 #Update the regions to dismiss / keep from the main repo
-cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv
-cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_process/wanted_regions.csv configuration/wanted_regions.csv
+if [ "$(hostname)" == "dna-prd-app01.exe.nhs.uk" ]; then
+	cp /mnt/data1/resources/diagnostic_intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv
+	cp /mnt/data1/resources/diagnostic_intervals/variants_regions_to_process/wanted_regions.csv configuration/wanted_regions.csv
+else
+	cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_dismiss/unwanted_variants.csv configuration/unwanted_variants.csv
+	cp /mnt/Data1/targeted_sequencing/intervals/variants_regions_to_process/wanted_regions.csv configuration/wanted_regions.csv
+fi
+
 bundle install

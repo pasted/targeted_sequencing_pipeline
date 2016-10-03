@@ -6,11 +6,11 @@ class RenderScript < ERB
 	end
 
 	def initialize(panel_version, gender, run_type, batch, options = {})
-		@panel_version	= panel_version
-		@gender 				= gender
-		@batch 					= batch
-		@run_type				= run_type
-		@template				= options.fetch(:template, self.class.template(batch, run_type))
+		@panel_version							= panel_version
+		@gender 										= gender
+		@batch 											= batch
+		@run_type										= run_type
+		@template										= options.fetch(:template, self.class.template(batch, run_type))
 		
 		super(@template)
 	end
