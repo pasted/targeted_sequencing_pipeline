@@ -9,8 +9,8 @@ class Metric
 	attr_accessor :pct_exc_dupe, :pct_exc_mapq, :pct_exc_baseq, :pct_exc_overlap, :pct_exc_off_target, :fold_80_base_penalty
 	attr_accessor :pct_target_bases_1x, :pct_target_bases_2x, :pct_target_bases_10x, :pct_target_bases_20x, :pct_target_bases_30x, :pct_target_bases_40x, :pct_target_bases_50x, :pct_target_bases_100x
 	attr_accessor :hs_library_size, :hs_penalty_10x, :hs_penalty_20x, :hs_penalty_30x, :hs_penalty_40x, :hs_penalty_50x, :hs_penalty_100x
-	attr_accessor :at_dropout, :gc_dropout, :het_snp_sensitivity, :het_snp_q, :sample_id, :library, :read_group
-	attr_accessor :ex_number
+	attr_accessor :at_dropout, :gc_dropout, :het_snp_sensitivity, :het_snp_q, :sample, :library, :read_group
+	attr_accessor :ex_number, :sample_id
 	
 	
 	def variable_order
@@ -24,7 +24,7 @@ class Metric
 			variable_order = variable_order + [:pct_exc_dupe, :pct_exc_mapq, :pct_exc_baseq, :pct_exc_overlap, :pct_exc_off_target, :fold_80_base_penalty]
 			variable_order = variable_order + [:pct_target_bases_1x, :pct_target_bases_2x, :pct_target_bases_10x, :pct_target_bases_20x, :pct_target_bases_30x, :pct_target_bases_40x, :pct_target_bases_50x, :pct_target_bases_100x]
 			variable_order = variable_order + [:hs_library_size, :hs_penalty_10x, :hs_penalty_20x, :hs_penalty_30x, :hs_penalty_40x, :hs_penalty_50x, :hs_penalty_100x]
-			variable_order = variable_order + [:at_dropout, :gc_dropout, :het_snp_sensitivity, :sample_id, :library, :read_group]
+			variable_order = variable_order + [:at_dropout, :gc_dropout, :het_snp_sensitivity, :het_snp_q, :sample, :library, :read_group]
 			return variable_order
 	end
 		

@@ -39,7 +39,7 @@ class VariantStore
 						elsif this_variant.var_type == 'substitution' && this_variant.filter_vcf == 'PASS'
 							#2.	Select substitutions that contain "PASS" in Filter(VCF) field; select all indels
 							
-							if ['missense', 'nonsense', 'start loss', 'stop loss'].include?(this_variant.coding_effect)
+							if ['missense', 'nonsense', 'start loss', 'stop loss', 'stop gain'].include?(this_variant.coding_effect)
 								#3.	Select all coding non-synonymous variants
 								this_variant.reason_for_selection = "Coding effect"
 								selected_variants.push(this_variant)

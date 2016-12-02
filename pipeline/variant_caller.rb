@@ -40,6 +40,32 @@ class VariantCaller
 			return output
 	end
 	
+	def haplotype_caller_gvcf_mode(sample, batch, logger)
+		
+	#${java_path} -Djava.io.tmpdir=${tmp_path} -Xmx10g -XX:ParallelGCThreads=4 -XX:ConcGCThreads=4 -jar ${gatk_path} -T BaseRecalibrator -I ${base_path}/assembly/${sample_id}.bam -R ${reference_path} -knownSites ${dbsnp_path} -o ${base_path}/assembly/${sample_id}_bqsr.grp
+	#${java_path} -Djava.io.tmpdir=${tmp_path} -Xmx10g -XX:ParallelGCThreads=4 -XX:ConcGCThreads=4 -jar ${gatk_path} -T HaplotypeCaller -I ${base_path}/assembly/${sample_id}.bam --BQSR ${base_path}/assembly/${sample_id}_bqsr.grp -o ${base_path}/vcfs/${sample_id}.gvcf --emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 -L ${base_path}/intervals/intersection_WES_v6.bed -D ${dbsnp_path} -R ${reference_path} -stand_call_conf 50.0 -stand_emit_conf 10.0
+	#${java_path} -Djava.io.tmpdir=${tmp_path} -Xmx4g -XX:ParallelGCThreads=4 -XX:ConcGCThreads=4 -jar  ${gatk_path} -T GenotypeGVCFs -R ${reference_path} -D ${dbsnp_path} -A FisherStrand -A QualByDepth -A ChromosomeCounts -A VariantType -o ${base_path}/vcfs/${sample_id}.vcf --variant ${base_path}/vcfs/${sample_id}_bqsr.gvcf
+		
+		this_wrapper = Wrapper.new
+		puts "Running GATK HaplotypeCaller in gVCF mode on sample...#{sample.sequencing_panel_version.downcase}_#{sample.ex_number}"
+			
+		input_file_string = "#{batch.base_path}/#{batch.batch_id}/assembly/#{sample.panel_version.downcase}_#{sample.ex_number}_#{sample.gender.upcase}.realigned.bam"
+			
+		output_file_string = "#{batch.base_path}/#{batch.batch_id}/variants/haplotyper/#{sample.panel_version.downcase}_#{sample.ex_number}_#{sample.gender.upcase}.hap_call.gvcf"
+		this_panel = batch.select_panel(sample.panel_version)
+			
+		phenotype_intervals_path="#{this_panel.intervals_directory}/#{sample.panel_version.downcase}_#{sample.phenotype}_variant_calling.bed"
+			
+		cmd = "#{batch.java_path} -Xmx4g -jar #{batch.gatk_path} -T HaplotypeCaller --BQSR #{batch.base_path}/assembly/#{sample.sample_id}_bqsr.grp -R #{batch.reference_path} --emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 -stand_call_conf 50.0 -stand_emit_conf 10.0 -D #{batch.dbsnp_path}"
+			
+		cmd += "-L #{phenotype_intervals_path} -I #{input_file_string} -o #{output_file_string} -log #{batch.base_path}/#{batch.batch_id}/logs/#{sample.panel_version.downcase}_#{sample.ex_number}_haplotype_caller_gvcf.log"
+
+		logger.info('stage') { "Variant caller gVCF mode :: Sample #{sample.panel_version.downcase}_#{sample.ex_number}" }
+		output = this_wrapper.run_command(cmd, logger)
+
+		return output
+	end
+	
 		# Runs GATK HaplotypeCaller over the T1D snps, converts the genotypes and allele depths to table format
 		# @param this_batch [Object] The Batch instance, derived from the Config YAML file
 		# @param logger [Object] The Logger instance

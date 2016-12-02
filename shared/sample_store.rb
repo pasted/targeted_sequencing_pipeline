@@ -104,8 +104,7 @@ class SampleStore
   				cnv_array = parser.parse_cnvs("#{this_panel.panel_id}", "#{this_batch.base_path}/#{parser.batch_id}/cnv_analysis/#{this_sample.gender.downcase}/#{this_panel.panel_id.downcase}/results/Sample_#{this_panel.panel_id.downcase}_#{this_sample.ex_number}_#{gender}.realigned.bam.csv")
   				self.cnv_store.cnvs.store("#{this_sample.ex_number}", cnv_array)
   				self.cnv_store.process_cnvs(this_sample, this_batch, this_panel, parser)
-  				puts "@@@@ #{this_sample.inspect}"
-  				puts self.cnv_store.inspect
+
   			else
   				puts "#{this_sample.capture_number} CNV file will not be parsed: check that gender(#{gender}) and panel (#{this_panel.panel_id}) meet criteria for running ExomeDepth"
   			end

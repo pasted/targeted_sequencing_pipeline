@@ -43,7 +43,7 @@ class SnpParser
   			
   			capture_numbers.each do |this_capture_number|
   				this_allele = Allele.new
-  				this_allele.sample_id 	= this_capture_number
+  				this_allele.sample_id 	= this_capture_number.downcase
   				this_allele.genotype 	= csv.first[:"#{this_capture_number}.gt"]
   				this_snp.alleles.push(this_allele)
   			end
@@ -188,12 +188,12 @@ class SnpParser
   parser.base_path = this_batch.base_path
   parser.sample_list_path = this_batch.sample_list_path
 
-  samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_batch.sample_list_path}")
+  samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/scripts/configuration/#{this_batch.sample_list_path}")
 
   sample_store = SampleStore.new(samples)
   
   capture_numbers = sample_store.capture_numbers.collect {|capture_number| capture_number.match("v501") ? capture_number : nil}
-  capture_numbers.compact!
+  capture_numbers.compact!.collect {|capture_number| capture_number.downcase!}
   
 
   scores = YAML.load_file("t1d_snps_score.yaml")

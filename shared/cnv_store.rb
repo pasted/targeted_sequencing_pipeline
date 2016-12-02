@@ -16,7 +16,7 @@ class CnvStore
 				this_cnv_array.each do |this_cnv|
 					this_cnv.is_wanted_region?(intervals_array)
 					tmp_cnv_array.push(this_cnv)
-					puts this_cnv.inspect
+
 				end
 				self.cnvs.store(this_ex_number, tmp_cnv_array)
 			end

@@ -305,7 +305,7 @@ class CoverageParser
  			
  		puts this_batch.inspect
  			 		
-  		metrics_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_batch.batch_id}.overall.metrics"
+  		metrics_file_path = "../../metrics/#{this_batch.batch_id}.overall.metrics"
 
   		#Init CoverageParser class
   		parser = CoverageParser.new()
@@ -313,8 +313,8 @@ class CoverageParser
   		#load the overall metrics
   		
   		metrics_array = parser.parse_metrics(metrics_file_path)
-
-  		samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/#{this_batch.sample_list_path}")
+  		puts "#{this_batch.base_path}/#{this_batch.batch_id}/#{this_batch.sample_list_path}"
+  		samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/scripts/configuration/#{this_batch.sample_list_path}")
   		#puts samples.inspect
   		
   		this_book = Spreadsheet::Workbook.new

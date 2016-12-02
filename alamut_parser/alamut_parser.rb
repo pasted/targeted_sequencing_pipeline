@@ -424,7 +424,7 @@ class AlamutParser
 					counter = counter + 1
 				end
 			end
-			
+			this_metric.sample_id = this_metric.sample
 			return this_metric
 	end
 	
@@ -432,9 +432,11 @@ class AlamutParser
 		processed_samples = Array.new
 		samples.each do |this_sample|
 			phenotype_metric_file_path = "#{this_batch.base_path}/#{this_batch.batch_id}/metrics/#{this_sample.panel_version}_#{this_sample.ex_number}_#{this_sample.gender.upcase!}_#{this_sample.phenotype}.phenotype.bait_capture_metrics"
-			
+
 			this_metric = this_parser.parse_metrics(phenotype_metric_file_path, this_batch.phenotype_metric_line)
+
 			this_sample.add_metrics(Array.new.push(this_metric))
+
 			processed_samples.push(this_sample)
 		end
 		
@@ -447,7 +449,7 @@ class AlamutParser
 		base_path = path.split("/scripts/").first
 		
   		#Load the config YAML file and pass the settings to local variables
-  		this_batch = YAML.load_file("#{base_path}/scripts/configuration/config.yaml")
+  		this_batch = YAML.load_file("../configuration/config.yaml")
   		
   		#Init AlamutParser class
   		#parser = AlamutParser.new()
@@ -457,7 +459,7 @@ class AlamutParser
   		parser.sample_list_path = this_batch.sample_list_path
   		
   		
-  		samples = parser.parse_sample_list("#{base_path}/#{parser.sample_list_path}")
+  		samples = parser.parse_sample_list("../configuration/#{parser.sample_list_path}")
     	
   		#populate phenotype specific metrics for each sample
   		samples = parser.populate_metrics(samples, this_batch, parser)
