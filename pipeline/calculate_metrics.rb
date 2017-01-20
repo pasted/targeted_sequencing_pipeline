@@ -3,8 +3,8 @@
 class CalculateMetrics
 	require_relative 'wrapper'
 	
-		# @author Garan Jones
-		# STUBBED_METHOD: use Picard to generate interval lists from BED files
+	# @author Garan Jones
+	# STUBBED_METHOD: use Picard to generate interval lists from BED files
   	# @param sample [Object] A Sample object
   	# @param batch [Object] A Batch object containing details on the batch
   	# @param logger [Object] A Ruby Logger object
@@ -24,8 +24,18 @@ class CalculateMetrics
 	
 	end
 	
-	  # @author Garan Jones
-		# Calculate the overall metrics for each sample using Picard CalculateHSMetrics
+	def run_multiqc(batch, logger)
+		
+		this_wrapper = Wrapper.new
+		cmd = "multiqc -f ../../. -o ../../metrics"
+		output = this_wrapper.run_command(cmd, logger)
+		
+		return output
+		
+	end
+	
+	# @author Garan Jones
+	# Calculate the overall metrics for each sample using Picard CalculateHSMetrics
   	# @param sample [Object] A Sample object
   	# @param batch [Object] A Batch object containing details on the batch
   	# @param logger [Object] A Ruby Logger object

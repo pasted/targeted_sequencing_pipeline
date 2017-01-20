@@ -479,9 +479,10 @@ class AlamutParser
   		this_book = tmp_sample_store.samples_to_axlsx(this_book, title_font)
 		
   		this_book.add_worksheet(:name => "Batch") do |this_sheet|
-  			
   				this_sheet.add_row ["Batch Id", "#{this_batch.batch_id}"]
   				this_sheet.add_row ["FTP url", "#{this_batch.ftp_url}"]
+  				this_sheet.add_row ["Validated version", "#{this_batch.validated_version}"]
+  				this_sheet.add_row ["Validation date", "#{this_batch.validation_date}"]
   				this_sheet.add_row ["Base path", "#{this_batch.base_path}"]
   				this_sheet.add_row ["Sample list path", "#{this_batch.sample_list_path}"]
   				this_sheet.add_row ["Alamut path", "#{this_batch.alamut_path}"]

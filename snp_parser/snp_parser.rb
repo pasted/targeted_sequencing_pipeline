@@ -43,7 +43,8 @@ class SnpParser
   			
   			capture_numbers.each do |this_capture_number|
   				this_allele = Allele.new
-  				this_allele.sample_id 	= this_capture_number.downcase
+  				puts this_capture_number.inspect
+  				this_allele.sample_id 	= this_capture_number.to_s.downcase
   				this_allele.genotype 	= csv.first[:"#{this_capture_number}.gt"]
   				this_snp.alleles.push(this_allele)
   			end
@@ -56,6 +57,7 @@ class SnpParser
   			puts "File size? #{File.stat(file_name).size}"
   		else
   			puts "File exists? #{File.exists?(file_name)}"
+  			puts "Check that the Genotype files are present at #{file_name}"
   		end
   	end
   	return snp_array
@@ -71,14 +73,14 @@ class SnpParser
   	
   	SmarterCSV.process( sample_file_path, options ) do |csv|
   		this_sample = Sample.new
-  		this_sample.capture_number 	= csv.first[:capture_number]
-  		this_sample.mody_number		= csv.first[:mody_number]
-  		this_sample.ex_number		= csv.first[:ex_number]
-  		this_sample.gender			= csv.first[:gender]
-  		this_sample.profile			= csv.first[:profile]
-  		this_sample.phenotype		= csv.first[:phenotype]
-  		this_sample.sample_type		= csv.first[:sample_type]
-  		this_sample.comment			= csv.first[:comment]
+  		this_sample.capture_number 		= csv.first[:capture_number]
+  		this_sample.mody_number				= csv.first[:mody_number]
+  		this_sample.ex_number					= csv.first[:ex_number]
+  		this_sample.gender						= csv.first[:gender]
+  		this_sample.profile						= csv.first[:profile]
+  		this_sample.phenotype					= csv.first[:phenotype]
+  		this_sample.sample_type				= csv.first[:sample_type]
+  		this_sample.comment						= csv.first[:comment]
   		this_sample.parse_panel_version
   		this_sample.parse_sample_id
   		if this_sample.phenotype == nil
@@ -189,12 +191,11 @@ class SnpParser
   parser.sample_list_path = this_batch.sample_list_path
 
   samples = parser.parse_sample_list("#{this_batch.base_path}/#{this_batch.batch_id}/scripts/configuration/#{this_batch.sample_list_path}")
-
+  
   sample_store = SampleStore.new(samples)
   
   capture_numbers = sample_store.capture_numbers.collect {|capture_number| capture_number.match("v501") ? capture_number : nil}
   capture_numbers.compact!.collect {|capture_number| capture_number.downcase!}
-  
 
   scores = YAML.load_file("t1d_snps_score.yaml")
   t1d_ranked_scores = parser.load_ranked_scores("t1d_ranked_scores.csv")
@@ -202,7 +203,7 @@ class SnpParser
   
   
   snp_array = parser.parse_genotype_table_file("#{this_batch.base_path}/#{this_batch.batch_id}/variants_t1d/#{this_batch.batch_id}.t1d.GATK-#{this_batch.gatk_version}.GT.table", capture_numbers)
-  
+  puts "#{this_batch.base_path}/#{this_batch.batch_id}/variants_t1d/#{this_batch.batch_id}.t1d.GATK-#{this_batch.gatk_version}.GT.table"
   sample_hash = Hash[capture_numbers.map {|x| [:"#{x}", [0.0,0]]}]
   
   snp_store = SnpStore.new(snp_array)

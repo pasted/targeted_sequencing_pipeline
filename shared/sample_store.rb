@@ -111,7 +111,7 @@ class SampleStore
   			
 
   			#Load variants from alltrans alamut file
-  			variants = parser.parse_file("#{this_batch.base_path}/#{parser.batch_id}/#{this_panel.variants_directory}/#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}_#{phenotype}.alamut.alltrans.txt", "#{this_panel.panel_id.downcase}", "#{this_sample.ex_number.downcase}")
+  			variants = parser.parse_file("#{this_batch.base_path}/#{parser.batch_id}/#{this_panel.variants_directory}/#{this_panel.panel_id}_#{this_sample.ex_number}_#{gender}_#{phenotype}.alamut.alltrans.txt", "#{this_panel.panel_id.downcase}", "#{this_sample.ex_number.to_s.downcase}")
   			variant_store = VariantStore.new(variants)
 
   			selected_variants = Array.new
@@ -151,7 +151,7 @@ class SampleStore
  							samples.each_pair do |this_ex_number, this_variant_array|
  								header_array = Array.new
  								cnv_header_array = Array.new
- 								sample_array = self.samples.select {|s| s.ex_number == this_ex_number }
+ 								sample_array = self.samples.select {|s| s.ex_number.to_s == this_ex_number.to_s }
  								this_sample = sample_array.first
  								
  								this_sheet.add_row ["EX NUMBER:", "#{this_sample.ex_number}", "PANEL VERSION", "#{this_sample.panel_version}"], :style => title_font
@@ -181,8 +181,9 @@ class SampleStore
  								this_sheet.add_row ["EX NUMBER:", "#{this_sample.ex_number}", "PANEL VERSION", "#{this_sample.panel_version}"], :style => title_font
  								
  								if self.cnv_store.cnvs.has_key?("#{this_sample.ex_number}")
+ 									puts "#{this_sample.ex_number}"
  									this_cnv_array = self.cnv_store.cnvs.fetch("#{this_sample.ex_number}")
- 									puts this_cnv_array.inspect
+ 									
  									if this_cnv_array.length > 0
  										this_cnv_array.each do |this_selected_cnv|
  											if cnv_header_array.empty?

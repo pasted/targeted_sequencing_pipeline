@@ -77,7 +77,7 @@ class VariantCaller
 		annotated_file_string = "#{batch.base_path}/#{batch.batch_id}/variants/haplotyper/#{batch.batch_id}.filtered.t1d.hc_call.vcf"	
 		genotype_file_string = "#{batch.base_path}/#{batch.batch_id}/variants_t1d/#{batch.batch_id}.t1d.GATK-#{batch.gatk_version}.GT.table"
 		allele_depth_file_string = "#{batch.base_path}/#{batch.batch_id}/variants_t1d/#{batch.batch_id}.t1d.GATK-#{batch.gatk_version}.AD.table"
-		
+		puts "#{batch.type_one_snps_path}"
 		this_caller = VariantCaller.new
 		out = this_caller.haplotype_caller_snps(input_file_string, output_file_string, "t1d", "#{batch.type_one_snps_path}", batch, logger)
 			

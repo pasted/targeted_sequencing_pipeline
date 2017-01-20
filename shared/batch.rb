@@ -1,5 +1,5 @@
 class Batch
-	attr_accessor :batch_id, :validated_version, :validation_date, :ftp_url, :base_path, :sample_list_path, :panels, :alamut_path, :hgmd_user, :hgmd_pass 
+	attr_accessor :batch_id, :project_id, :validated_version, :validation_date, :ftp_url, :base_path, :sample_list_path, :panels, :alamut_path, :hgmd_user, :hgmd_pass 
 	attr_accessor :sequencer_name, :java_path, :rscript_path, :bwa_path, :picard_path, :gatk_version, :gatk_path, :tmp_path, :cleancall_path, :cleancall_resources_path, :exome_depth_resources_path
 	attr_accessor :reference_path, :known_path, :common_variants_nkmi_path, :common_artefacts_path, :dbsnp_path, :ndm_snps_path, :type_one_snps_path
 	attr_accessor :phenotype_metric_line, :overall_metric_line, :duplicate_metric_line, :flowcell

@@ -10,7 +10,7 @@
     java_path: "/usr/share/java-1.8.0/jdk1.8.0_92/bin/java"
     rscript_path: "/usr/share/r/R-3.2.0/bin/Rscript"
     bwa_path: "/usr/share/bwa/bwa-0.7.15/bwa"
-    picard_path: "/usr/share/picard/picard-tools-2.5.0"
+    picard_path: "/usr/share/picard/picard-tools-2.8.1"
     gatk_version: "3.6-0"
     gatk_path: "/usr/share/gatk/GenomeAnalysisTK-3.6.0/GenomeAnalysisTK.jar"
     freebayes_path: "/usr/share/freebayes/bin/freebayes"

@@ -11,7 +11,7 @@ class SnpStore
   	def process_merged_snps(snp_ids_to_merge)
   		
   		snps_to_merge = Array.new
- 
+  		
   		self.snps.each do |this_snp| 			
   			if snp_ids_to_merge.include?("#{this_snp.id}") 
   				snps_to_merge.push(this_snp)
@@ -21,12 +21,13 @@ class SnpStore
   		merged_ids = []
   		alleles_to_merge = []
   		allele_array_lengths = []
+  		
   		snps_to_merge.each do |this_snp|
   			merged_ids.push(this_snp.id)
   			alleles_to_merge.push(this_snp.alleles)
   			allele_array_lengths.push(this_snp.alleles.length)
   		end
-  	
+  		
   		number_of_samples = allele_array_lengths.first
   		count = 0
   		
