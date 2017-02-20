@@ -1,7 +1,7 @@
 --- !ruby/object:Batch
-    batch_id: "validate_pipeline"
-    validated_version: "v1.3"
-    validation_date: ""
+    batch_id: ""
+    validated_version: "v1.3.1"
+    validation_date: "2017-01-20"
     ftp_url: ""
     flowcell: ""
     base_path: "/mnt/Data4/working_directory/garan/pipeline_validation"
@@ -207,6 +207,7 @@
           - "MOBIUS"
           - "NEOPLASIA"
           - "PCH"
+          - "PDE"
           - "PHA"
           - "PHAEO"
           - "POREN"
