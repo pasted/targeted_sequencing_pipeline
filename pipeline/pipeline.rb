@@ -268,9 +268,9 @@ class Pipeline
  			run_select_variants(this_sample, this_batch, logger)
 					
  		end
-	
 
- 		#Run ExomeDepth over gender specific batches
+
+		#Run ExomeDepth over gender specific batches
 	 	run_exome_depth(samples, this_batch, logger)
 	  
 	 	#annotate variants
