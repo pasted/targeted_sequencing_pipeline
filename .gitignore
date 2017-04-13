@@ -13,8 +13,10 @@
 ## Specific to pipeline
 /configuration/config.yaml
 /configuration/sample_list_all.csv
+/configuration/sample_list_validation.csv
 /pipeline/*.out
 /r_scripts/*.out
+
 
 ## Specific to RubyMotion:
 .dat*
