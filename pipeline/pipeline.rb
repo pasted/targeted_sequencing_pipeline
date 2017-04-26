@@ -255,6 +255,12 @@ class Pipeline
  			out = this_wget.fetch_fastq(this_sample, this_batch, logger)
  			this_pipeline.error_check(out, this_sample, "Wget FastQ", logger)
  		
+ 			this_wget = Wget.new
+ 			out = this_wget.fetch_md5sum(this_sample, this_batch, logger)
+ 			this_pipeline.error_check(out, this_sample, "Wget MD5Sum", logger)
+ 			
+ 			
+ 			
  			this_rename = Rename.new
  			out = this_rename.remove_fastq_adaptor_string(this_sample, this_batch, logger)
  			this_pipeline.error_check(out, this_sample, "FastQ file rename", logger)
