@@ -45,7 +45,7 @@ class Variant
 				variable_order = variable_order + [:hgmd_id, :hgmd_phenotype, :hgmd_pub_med_id, :hgmd_sub_category, :clin_var_ids, :rs_id, :rs_validated, :rs_maf]
 				variable_order = variable_order + [:esp_all_maf, :genomes_1000_freq, :exac_alt_freq_all, :distance_nearest_splice_site, :nearest_splice_site_type, :nearest_splice_site_change]
 				variable_order = variable_order + [:local_splice_effect, :n_orthos, :conserved_orthos, :conserved_dist_species, :grantham_dist, :agv_gd_class, :sift_prediction]
-				variable_order = variable_order + [:filter_vcf, :ad, :dp, :gq, :gt, :pl]
+				variable_order = variable_order + [:filter_vcf, :quality_vcf, :ad, :dp, :gq, :gt, :pl]
 				variable_order = variable_order + [:ins_nucs, :del_nucs, :wt_nuc, :var_nuc]				
 				variable_order = variable_order + [:chromosome, :position, :genomic_dna_start, :genomic_dna_end, :transcript]
 				variable_order = variable_order + [:esp_ea_maf, :esp_aa_maf, :genomes_1000_afr_freq,	:genomes_1000_sas_freq, :genomes_1000_eas_freq, :genomes_1000_eur_freq, :genomes_1000_amr_freq]	
