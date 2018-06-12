@@ -1,6 +1,7 @@
 # Targeted sequencing pipeline
 Targeted sequencing pipeline for the Royal Devon &amp; Exeter Molecular Genetics lab. 
-#
+
+Created by Garan Jones g.jones@exeter.ac.uk
 
 Ruby class based pipeline with Excel outputs. 
 Requires following software to run
